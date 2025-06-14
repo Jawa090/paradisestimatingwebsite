@@ -11,9 +11,10 @@ import {
   softwareBasedServices,
   documentationServices,
   projectSupportServices,
-  constructionManagementServices
+  constructionManagementServices,
+  industriesWeServe
 } from '@/data/newServices';
-import { Calculator, FileText, Settings, Monitor, ClipboardList, Users, Building2 } from 'lucide-react';
+import { Calculator, FileText, Settings, Monitor, ClipboardList, Users, Building2, Factory } from 'lucide-react';
 
 const Services = () => {
   const animatedElementsRef = useRef<HTMLDivElement>(null);
@@ -51,6 +52,13 @@ const Services = () => {
   }, []);
 
   const serviceCategories = [
+    {
+      title: 'Industries We Serve',
+      icon: <Factory className="h-12 w-12" />,
+      description: 'Specialized estimating services for diverse industry sectors.',
+      services: industriesWeServe,
+      color: 'blue'
+    },
     {
       title: 'Construction Management',
       icon: <Building2 className="h-12 w-12" />,
@@ -199,7 +207,7 @@ const Services = () => {
                       title={service.title}
                       description={service.shortDescription}
                       icon={service.icon}
-                      link={`/services/${service.id}`}
+                      link={service.id === 'commercial-construction' ? '/services/commercial-construction' : `/services/${service.id}`}
                     />
                   </div>
                 ))}

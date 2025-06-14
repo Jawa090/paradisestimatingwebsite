@@ -35,7 +35,7 @@ import {
 import { toast } from '@/components/ui/use-toast';
 
 // Import services data to populate the dropdown
-import { servicesData } from '@/data/services';
+import { quantityTakeoffServices } from '@/data/newServices.tsx';
 
 // Form schema
 const formSchema = z.object({
@@ -167,7 +167,7 @@ const EstimateDownload = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            {servicesData.map((service) => (
+                            {quantityTakeoffServices.map((service) => (
                               <SelectItem key={service.id} value={service.title}>
                                 {service.title}
                               </SelectItem>

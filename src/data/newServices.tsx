@@ -17,7 +17,26 @@ import {
   Users,
   CheckCircle,
   DollarSign,
-  Activity
+  Activity,
+  Ruler,
+  Shield,
+  Droplet,
+  Mountain,
+  Truck,
+  Construction,
+  Shovel,
+  Map,
+  Satellite,
+  Factory,
+  School,
+  Landmark,
+  Anchor,
+  Layers,
+  Store,
+  Workflow,
+  ClipboardCheck,
+  Package2,
+  Trello
 } from 'lucide-react';
 
 export interface Service {
@@ -37,15 +56,333 @@ export interface Service {
     answer: string;
   }>;
   relatedServices: string[];
+  industries?: Array<{
+    title: string;
+    description: string;
+  }>;
+  serviceDetails?: {
+    drywallServices?: {
+      title: string;
+      description: string;
+      materials: string[];
+      applications: string[];
+    };
+    insulationServices?: {
+      title: string;
+      description: string;
+      materials: string[];
+      applications: string[];
+    };
+    roofingServices?: {
+      title: string;
+      description: string;
+      materials: string[];
+      applications: string[];
+    };
+    waterproofingServices?: {
+      title: string;
+      description: string;
+      materials: string[];
+      applications: string[];
+    };
+  };
+  sampleReport?: {
+    available: boolean;
+    description: string;
+    previewLink?: string;
+  };
+  callToAction?: {
+    primary: string;
+    secondary: string;
+    description: string;
+  };
 }
 
 export const quantityTakeoffServices: Service[] = [
   {
+    id: 'sitework-earthworks',
+    title: 'Sitework & Earthworks Takeoffs',
+    icon: <Mountain size={40} />,
+    shortDescription: 'Comprehensive sitework and earthworks estimating services with GPS-based takeoffs and region-specific pricing.',
+    description: `At Paradise Estimating, we offer comprehensive sitework and earthworks estimating services to help ensure your construction project gets off to a solid start. Our team uses cutting-edge estimating technology to provide precise, cost-effective takeoffs for site grading, excavation, and foundation phases of your build. With our accurate, professional estimates, you can avoid costly delays and unforeseen issues.
+
+    Our sitework takeoff services cover everything from initial site preparation to final grading, ensuring you have accurate quantities for clearing, grubbing, demolition, and erosion control. We understand the importance of precise calculations in this critical phase of construction.
+
+    For earthworks, we utilize advanced GPS and drone survey data to provide exact cut/fill calculations, helping you optimize your excavation strategy and reduce unnecessary costs. Our comprehensive approach includes detailed analysis of soil conditions and equipment requirements.`,
+    bannerImage: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    features: [
+      'GPS-Based Takeoffs: Precise earthwork calculations to reduce waste',
+      'Region-Specific Pricing: Soil analysis for local conditions (clay, sand, bedrock)',
+      'Equipment Cost Forecasting: Detailed equipment analysis for each stage',
+      'Trimble Earthworks Integration: State-of-the-art technology integration',
+      'Drone Survey Processing: Fast, accurate aerial data processing',
+      'GIS Mapping: Advanced terrain analysis for accurate planning'
+    ],
+    processSteps: [
+      {
+        title: 'Plan Submission',
+        description: 'Upload your project plans through our secure online platform.'
+      },
+      {
+        title: 'Site Analysis',
+        description: 'Our team analyzes site conditions, terrain, and local factors.'
+      },
+      {
+        title: 'Quantity Calculation',
+        description: 'Precise calculations using GPS and drone data for accuracy.'
+      },
+      {
+        title: 'Report Delivery',
+        description: 'Receive comprehensive reports with detailed breakdowns.'
+      }
+    ],
+    industries: [
+      {
+        title: 'Civil Contractors',
+        description: 'Infrastructure and site development projects.'
+      },
+      {
+        title: 'Commercial Developers',
+        description: 'Large-scale commercial and industrial developments.'
+      },
+      {
+        title: 'Residential Builders',
+        description: 'Housing developments and custom home sites.'
+      },
+      {
+        title: 'Earthwork Specialists',
+        description: 'Specialized excavation and grading contractors.'
+      }
+    ],
+    faqs: [
+      {
+        question: "How accurate are your earthwork calculations?",
+        answer: "Our GPS-based takeoffs provide 98% accuracy for cut/fill calculations, helping you avoid costly over-excavation."
+      },
+      {
+        question: "Do you account for different soil types?",
+        answer: "Yes, we analyze local soil conditions (clay, sand, bedrock) and factor them into our estimates for more accurate pricing."
+      },
+      {
+        question: "Can you handle complex terrain?",
+        answer: "Absolutely. Our advanced GIS mapping and drone survey processing allow us to handle even the most challenging terrain conditions."
+      },
+      {
+        question: "What's included in the final report?",
+        answer: "Our reports include detailed cut/fill volumes, material quantities, equipment recommendations, and cost breakdowns."
+      }
+    ],
+    relatedServices: ['quantity-takeoff', 'concrete-takeoff', 'masonry-takeoff'],
+    serviceDetails: {
+      drywallServices: {
+        title: 'Sitework Services',
+        description: 'Our comprehensive sitework estimating services cover all aspects of site preparation and development.',
+        materials: [
+          'Clearing & Grubbing: Accurate estimates for vegetation removal and site clearing',
+          'Site Demolition: Detailed quantities for structure removal and site preparation',
+          'Erosion Control: Complete material takeoffs for erosion prevention measures',
+          'Temporary Utilities: Estimates for temporary power, water, and site facilities',
+          'Site Drainage: Comprehensive quantities for drainage systems and materials',
+          'Paving & Surfacing: Detailed takeoffs for all paving materials and surfaces'
+        ],
+        applications: [
+          'Commercial Development: Precise estimates for large-scale commercial sites',
+          'Residential Development: Detailed takeoffs for housing developments',
+          'Industrial Sites: Comprehensive quantities for industrial facility preparation'
+        ]
+      },
+      insulationServices: {
+        title: 'Earthworks Services',
+        description: 'Our earthworks estimating services provide precise calculations for all excavation and grading needs.',
+        materials: [
+          'Cut/Fill Calculations: Exact volume calculations for optimal site balance',
+          'Mass Excavation: Detailed quantities for large-scale earth moving',
+          'Trenching & Backfill: Precise estimates for utility trenches and backfill',
+          'Soil Stabilization: Material quantities for ground improvement',
+          'Rock Removal: Accurate volumes for rock excavation and removal',
+          'Compaction Testing: Estimates for required testing and verification'
+        ],
+        applications: [
+          'Site Grading: Precise calculations for achieving final grade',
+          'Foundation Preparation: Detailed quantities for building foundations',
+          'Infrastructure Development: Comprehensive takeoffs for roads and utilities'
+        ]
+      }
+    },
+    sampleReport: {
+      available: true,
+      description: 'View a sample of our detailed sitework and earthworks takeoff reports, including cut/fill calculations, material quantities, and equipment recommendations.',
+      previewLink: '[Link to sample or embedded preview]'
+    },
+    callToAction: {
+      primary: 'Get Your Estimate',
+      secondary: 'View Sample Report',
+      description: 'Stop guessing ground conditions – get engineered estimates backed by cutting-edge technology.'
+    }
+  },
+  {
+    id: 'drywall-insulation',
+    title: 'Drywall & Insulation Takeoffs',
+    icon: <FileText size={40} />,
+    shortDescription: 'Minimize waste and boost bid accuracy with professional estimating services for contractors, builders, and suppliers.',
+    description: `Our drywall and insulation estimating services are designed to streamline your project planning, save you time, and enhance your bid accuracy. With years of experience serving residential, commercial, and industrial projects, we provide you with precise takeoffs that minimize material waste and ensure you have exactly what you need for the job.
+
+    Our drywall takeoff services are designed to provide you with accurate, detailed material estimates for every aspect of your drywall installation. Whether you are working on new construction, a renovation, or a multi-family housing project, we ensure you have the materials needed for a successful build.
+
+    Accurate insulation estimates are essential for achieving energy efficiency and cost-effectiveness in any building. Whether you are working on a residential or commercial project, our insulation takeoff services ensure that you only order the amount of material needed to meet performance specifications, reducing waste and cost.`,
+    bannerImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    features: [
+      'Fast Turnaround: Most projects are completed within 24–48 hours',
+      'Cost-Saving Accuracy: Our precise estimates help avoid over-ordering and shortages',
+      'Software Compatibility: Our reports are fully compatible with popular estimating software like Planswift, Bluebeam, and AutoCAD',
+      'Detailed Reports: Receive comprehensive reports, including square footage, material counts, and labor estimates',
+      'Industry Experience: We serve a wide range of industries, including residential, commercial, and industrial projects'
+    ],
+    processSteps: [
+      {
+        title: 'Upload Your Plans',
+        description: 'Submit your project plans in formats like PDF, DWG, or Revit.'
+      },
+      {
+        title: 'Analysis & Measurement',
+        description: 'Our experts carefully analyze your plans, measuring square footage, linear feet, and materials.'
+      },
+      {
+        title: 'Receive Your Report',
+        description: 'We provide a detailed takeoff report in your preferred format, whether it is Excel, CSV, or another format.'
+      }
+    ],
+    industries: [
+      {
+        title: 'Residential Contractors',
+        description: 'Custom homes, renovations, and multi-family housing projects.'
+      },
+      {
+        title: 'Commercial Builders',
+        description: 'Office buildings, retail spaces, and other commercial developments.'
+      },
+      {
+        title: 'Insulation Subcontractors',
+        description: 'Reliable estimates for all insulation types.'
+      },
+      {
+        title: 'Drywall Suppliers',
+        description: 'Precise takeoffs to support large material orders and bulk supply.'
+      }
+    ],
+    faqs: [
+      {
+        question: "What's included in a drywall takeoff report?",
+        answer: "Our drywall takeoff reports include material quantities (e.g., gypsum board, framing materials, joint compound), detailed square footage, and labor estimates for each task."
+      },
+      {
+        question: "How do you calculate insulation material requirements?",
+        answer: "We calculate insulation needs based on the layout of your project, the required R-values for different areas, and the insulation type selected (e.g., fiberglass, spray foam)."
+      },
+      {
+        question: "Can you work with my estimating software?",
+        answer: "Yes, we provide takeoff reports in formats compatible with leading estimating software like Planswift, Bluebeam, AutoCAD, and more."
+      },
+      {
+        question: "Do you offer rush pricing?",
+        answer: "Yes, we offer expedited services for projects with tight deadlines. Contact us for more information on our rush pricing options."
+      }
+    ],
+    relatedServices: ['quantity-takeoff', 'concrete-takeoff', 'masonry-takeoff'],
+    serviceDetails: {
+      drywallServices: {
+        title: 'Drywall Takeoff Services',
+        description: 'Our drywall takeoff services are designed to provide you with accurate, detailed material estimates for every aspect of your drywall installation. Whether you are working on new construction, a renovation, or a multi-family housing project, we ensure you have the materials needed for a successful build.',
+        materials: [
+          'Gypsum Board: Estimates for various types of drywall, including standard, fire-rated, moisture-resistant, and specialty boards',
+          'Framing Materials: Metal studs, drywall screws, joint compound, tape, and finishing materials are all covered in our estimates',
+          'Ceiling Systems: Accurate takeoffs for lay-in and suspended ceiling systems for both commercial and residential projects'
+        ],
+        applications: [
+          'New Construction: Reliable material calculations for new build projects',
+          'Renovations & Remodels: Quick estimates for any renovation or remodel, including tenant improvements',
+          'Multi-Family Housing: Efficient estimates for large-scale residential projects like apartments and condominiums'
+        ]
+      },
+      insulationServices: {
+        title: 'Insulation Takeoff Services',
+        description: 'Accurate insulation estimates are essential for achieving energy efficiency and cost-effectiveness in any building. Whether you are working on a residential or commercial project, our insulation takeoff services ensure that you only order the amount of material needed to meet performance specifications, reducing waste and cost.',
+        materials: [
+          'Fiberglass Batts: Available in R-13 to R-38, suitable for both residential and commercial applications',
+          'Spray Foam: Open and closed-cell foam for superior thermal performance and air sealing',
+          'Rigid Foam Boards: XPS, EPS, and polyiso boards for exterior walls, foundations, and other applications',
+          'Mineral Wool & Acoustic Insulation: For soundproofing and thermal insulation needs in both commercial and residential spaces'
+        ],
+        applications: [
+          'Exterior Walls, Attics, Basements: Efficient insulation for temperature control and energy savings',
+          'Soundproofing & Thermal Barriers: Ideal for areas where noise reduction or enhanced thermal insulation is required'
+        ]
+      }
+    },
+    sampleReport: {
+      available: true,
+      description: 'We provide detailed, accurate takeoff reports that include all material quantities, square footage breakdowns, and labor estimates. You can see exactly how we deliver these estimates by checking a sample report, which shows a portion of the data in a clear, easy-to-understand format.',
+      previewLink: '[Link to sample or embedded preview]'
+    },
+    callToAction: {
+      primary: 'Request a Quote Now',
+      secondary: 'Get Started Today',
+      description: 'Take the next step in simplifying your estimating process. Get precise drywall and insulation takeoffs tailored to your project needs.'
+    }
+  },
+  {
+    id: 'quantity-takeoff',
+    title: 'Comprehensive Quantity Takeoff',
+    icon: <Calculator size={40} />,
+    shortDescription: 'Precise and reliable quantity takeoff services for contractors, developers, architects, and homeowners.',
+    description: 'At Paradise Estimating, we offer precise and reliable quantity takeoff services for contractors, developers, architects, and homeowners. Our skilled estimators leverage cutting-edge software and industry expertise to provide quick and accurate material takeoffs and labor estimates. With a focus on speed and precision, we ensure that you have the accurate data you need to make informed decisions and meet tight deadlines.',
+    bannerImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    features: [
+      'Comprehensive material quantity calculations',
+      'Detailed breakdown by construction phase',
+      'Waste factor calculations',
+      'Unit cost analysis',
+      'Digital takeoff technology utilization',
+      'Procurement schedule recommendations',
+      'Budget optimization strategies',
+      'Material alternatives comparison'
+    ],
+    processSteps: [
+      {
+        title: 'Plan Analysis',
+        description: 'We carefully review construction documents to understand project scope and requirements.'
+      },
+      {
+        title: 'Digital Takeoff',
+        description: 'Using advanced software, we calculate precise material quantities needed for each element.'
+      },
+      {
+        title: 'Quality Check',
+        description: 'We verify calculations and cross-reference with specifications to ensure accuracy.'
+      },
+      {
+        title: 'Final Report',
+        description: 'We deliver a comprehensive material list organized by phase, area, or material type.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'What types of projects do you handle?',
+        answer: 'We handle all types of construction projects, from residential to commercial, industrial, and infrastructure.'
+      },
+      {
+        question: 'How accurate are your takeoffs?',
+        answer: 'Our digital takeoffs are highly accurate, with multiple quality checks to ensure precision.'
+      }
+    ],
+    relatedServices: ['concrete-takeoff', 'masonry-takeoff', 'structural-steel']
+  },
+  {
     id: 'concrete-takeoff',
-    title: 'Concrete (Footings, Slabs, Columns)',
+    title: 'Concrete Takeoff Services',
     icon: <Building2 size={40} />,
-    shortDescription: 'Precise concrete quantity calculations for footings, slabs, columns, and all concrete elements.',
-    description: 'Our concrete takeoff service provides detailed quantity calculations for all concrete elements in your project including footings, slabs, columns, beams, and walls. We ensure accurate material estimates to optimize your concrete procurement and reduce waste.',
+    shortDescription: 'Accurate concrete estimating services for residential & commercial projects.',
+    description: 'Our concrete takeoff service provides detailed quantity calculations for all concrete elements in your project. We specialize in providing contractors, builders, and developers with reliable, precise concrete estimates. Using advanced software and leveraging the expertise of our experienced team, we eliminate errors and reduce the risk of cost overruns.',
     bannerImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
     features: [
       'Foundation and footing calculations',
@@ -77,12 +414,16 @@ export const quantityTakeoffServices: Service[] = [
     ],
     faqs: [
       {
-        question: 'What concrete elements do you include in takeoffs?',
-        answer: 'We include all concrete elements: footings, slabs, columns, beams, walls, stairs, and specialty concrete work.'
+        question: 'How accurate are your concrete estimating services?',
+        answer: 'Our digital concrete takeoffs eliminate manual errors and ensure your estimates are 100% accurate.'
       },
       {
-        question: 'Do you calculate reinforcement requirements?',
-        answer: 'Yes, we provide detailed rebar takeoffs including sizes, lengths, and placement requirements.'
+        question: 'Do you include labor costs in your concrete estimates?',
+        answer: 'Yes, our concrete bid estimation includes comprehensive labor costs for an all-inclusive bid.'
+      },
+      {
+        question: 'Can you handle urgent concrete estimating requests?',
+        answer: 'Yes, we offer rush concrete estimate services to help you meet critical timelines.'
       }
     ],
     relatedServices: ['masonry-takeoff', 'structural-steel']
@@ -184,96 +525,53 @@ export const quantityTakeoffServices: Service[] = [
   {
     id: 'carpentry-millwork',
     title: 'Carpentry, Millwork & Cabinetry',
-    icon: <Hammer size={40} />,
-    shortDescription: 'Comprehensive takeoffs for all carpentry, millwork, and cabinetry components.',
-    description: 'Our carpentry and millwork takeoff service covers all wood construction elements from rough framing to finish carpentry, including custom millwork and cabinetry with detailed material specifications.',
-    bannerImage: 'https://images.unsplash.com/photo-1421217336522-861978fdf33a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    icon: <Ruler size={40} />,
+    shortDescription: 'Precise takeoff services for carpentry, millwork, and custom cabinetry projects.',
+    description: 'At Paradise Estimating, we understand the importance of delivering precision millwork and cabinetry takeoffs that keep your projects on schedule and within budget. Our expert team provides fast, reliable, and accurate takeoff services for contractors and builders across the United States.',
+    bannerImage: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
     features: [
-      'Rough framing lumber calculations',
-      'Finish carpentry materials',
-      'Custom millwork specifications',
-      'Cabinetry and built-ins',
-      'Hardware and fasteners',
-      'Trim and molding quantities',
-      'Stairs and railings',
-      'Specialty woodwork'
+      'Custom millwork takeoffs & architectural woodwork quantities',
+      'Cabinetry estimating for kitchens, casework, and storage',
+      'Trim, molding & paneling takeoffs',
+      'Door & window casing, baseboards, and wainscoting',
+      'Shop drawing support for fabricators',
+      'Material lists and labor counts',
+      'Cost integration and analysis',
+      'CSI Division 6 compliance'
     ],
     processSteps: [
       {
         title: 'Plan Analysis',
-        description: 'We review architectural plans for all carpentry and millwork requirements.'
+        description: 'We analyze your plans and specifications to understand project requirements.'
       },
       {
-        title: 'Material Calculations',
-        description: 'We calculate precise quantities for lumber, hardware, and specialty items.'
+        title: 'Detailed Takeoff',
+        description: 'We perform comprehensive takeoffs for all millwork and cabinetry elements.'
       },
       {
-        title: 'Quality Specifications',
-        description: 'We specify appropriate grades and species for each application.'
+        title: 'Cost Integration',
+        description: 'We integrate material quantities with current pricing for accurate estimates.'
       },
       {
-        title: 'Complete Package',
-        description: 'We deliver comprehensive material lists with cut lists and specifications.'
+        title: 'Final Report',
+        description: 'We deliver detailed reports with material lists, labor counts, and cost analysis.'
       }
     ],
     faqs: [
       {
-        question: 'Do you provide cut lists for framing?',
-        answer: 'Yes, we can provide detailed cut lists and framing layouts for efficient construction.'
+        question: 'How much does a millwork takeoff cost?',
+        answer: 'Our prices are transparent, with customizable pricing models based on your project\'s scope. Contact us for a personalized quote.'
       },
       {
-        question: 'Can you handle custom millwork?',
-        answer: 'Yes, we work with custom millwork shops to provide accurate quantities and specifications.'
+        question: 'What types of plans can you work with?',
+        answer: 'We work with PDF, DWG, and CAD files to create accurate and efficient takeoffs.'
+      },
+      {
+        question: 'What\'s your typical turnaround time?',
+        answer: 'We provide most takeoffs within 24-48 hours, ensuring quick turnaround times for your projects.'
       }
     ],
-    relatedServices: ['drywall-insulation', 'flooring-takeoff']
-  },
-  {
-    id: 'drywall-insulation',
-    title: 'Drywall & Insulation',
-    icon: <Package size={40} />,
-    shortDescription: 'Accurate drywall and insulation quantity calculations for interior finishing.',
-    description: 'Our drywall and insulation takeoff service provides detailed calculations for all interior wall and ceiling finishes including drywall, insulation, joint compound, and related materials.',
-    bannerImage: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    features: [
-      'Drywall sheet calculations',
-      'Insulation quantity analysis',
-      'Joint compound and tape',
-      'Metal framing and accessories',
-      'Specialty ceiling systems',
-      'Vapor barriers and sealants',
-      'Fasteners and hardware',
-      'Labor productivity factors'
-    ],
-    processSteps: [
-      {
-        title: 'Area Calculations',
-        description: 'We calculate wall and ceiling areas for drywall and insulation coverage.'
-      },
-      {
-        title: 'Material Selection',
-        description: 'We specify appropriate materials for each application and climate zone.'
-      },
-      {
-        title: 'Installation Planning',
-        description: 'We analyze installation requirements and productivity factors.'
-      },
-      {
-        title: 'Final Estimates',
-        description: 'We provide detailed material quantities and installation estimates.'
-      }
-    ],
-    faqs: [
-      {
-        question: 'Do you account for different drywall thicknesses?',
-        answer: 'Yes, we specify appropriate drywall thickness based on application and building codes.'
-      },
-      {
-        question: 'Can you estimate specialty ceiling systems?',
-        answer: 'Yes, we handle all types of ceiling systems including suspended, coffered, and specialty finishes.'
-      }
-    ],
-    relatedServices: ['carpentry-millwork', 'painting-finishes']
+    relatedServices: ['quantity-takeoff', 'cost-estimation', 'shop-drawings']
   },
   {
     id: 'roofing-waterproofing',
@@ -323,8 +621,8 @@ export const quantityTakeoffServices: Service[] = [
     relatedServices: ['flooring-takeoff', 'windows-glazing']
   },
   {
-    id: 'flooring-takeoff',
-    title: 'Flooring (Tile, Wood, Carpet)',
+    id: 'flooring-takeoffs',
+    title: 'Flooring Takeoffs',
     icon: <PaintBucket size={40} />,
     shortDescription: 'Comprehensive flooring material calculations for all flooring types.',
     description: 'Our flooring takeoff service provides detailed quantity calculations for all flooring materials including tile, hardwood, carpet, luxury vinyl, and specialty flooring with underlayment and installation requirements.',
@@ -370,145 +668,53 @@ export const quantityTakeoffServices: Service[] = [
     relatedServices: ['drywall-insulation', 'windows-glazing']
   },
   {
-    id: 'windows-glazing',
-    title: 'Doors, Windows & Glazing',
-    icon: <Monitor size={40} />,
-    shortDescription: 'Detailed takeoffs for all door, window, and glazing systems.',
-    description: 'Our doors, windows, and glazing takeoff service covers all openings including residential and commercial doors, windows, storefront systems, and specialty glazing with hardware and installation requirements.',
-    bannerImage: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    id: 'doors-windows-glazing',
+    title: 'Doors, Windows & Glazing Takeoffs',
+    icon: <Home size={40} />,
+    shortDescription: 'Professional doors, windows, and glazing takeoff services for accurate construction estimates.',
+    description: 'Bid anxiety is real, and it can cost you more than just time—it can eat away at your bottom line. With Paradise Estimating, you can be confident that your window, door, and glazing estimates are accurate from the start.',
+    bannerImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
     features: [
-      'Door and window schedules',
-      'Hardware and accessories',
-      'Glazing and glass specifications',
-      'Frame and installation materials',
-      'Weather sealing systems',
-      'Security and access control',
-      'Energy efficiency ratings',
-      'Specialty glazing systems'
+      'Precise Digital Blueprint Analysis',
+      'Material Intelligence Database Integration',
+      'Triple-Check QA System',
+      'Contractor-Ready Reports',
+      'BIM Integration for Clash Detection',
+      'Material Volatility Monitoring'
     ],
     processSteps: [
       {
-        title: 'Schedule Review',
-        description: 'We review door and window schedules for all opening requirements.'
+        title: 'Digital Blueprint Analysis',
+        description: 'We begin with a deep dive into your project\'s digital blueprints, isolating layers for frames and glass.'
       },
       {
-        title: 'Specification Analysis',
-        description: 'We analyze specifications for performance and compliance requirements.'
+        title: 'Material Intelligence Integration',
+        description: 'Our proprietary database optimizes material use and tracks price volatility.'
       },
       {
-        title: 'Hardware Selection',
-        description: 'We specify appropriate hardware for security, accessibility, and function.'
+        title: 'Quality Assurance',
+        description: 'Every estimate undergoes our rigorous triple-check process.'
       },
       {
-        title: 'Complete Systems',
-        description: 'We provide complete system takeoffs including installation requirements.'
+        title: 'Final Report Delivery',
+        description: 'Receive comprehensive, contractor-ready reports with precise quantities.'
       }
     ],
     faqs: [
       {
-        question: 'Do you handle commercial glazing systems?',
-        answer: 'Yes, we work with all glazing systems including storefront, curtain wall, and specialty systems.'
+        question: 'How do you handle last-minute plan revisions?',
+        answer: 'We understand that plans often change, and we\'re ready to adapt. Our team is skilled at incorporating last-minute revisions quickly and accurately.'
       },
       {
-        question: 'Can you specify energy-efficient systems?',
-        answer: 'Yes, we help select systems that meet energy codes and sustainability requirements.'
+        question: 'Can you quantify hardware for security doors?',
+        answer: 'Absolutely! We can provide detailed takeoffs for all types of hardware, including those for high-security doors.'
+      },
+      {
+        question: 'What makes glazing estimates different from standard windows?',
+        answer: 'Glazing systems are more complex than standard windows, with considerations for thermal performance, custom shapes, and special framing.'
       }
     ],
-    relatedServices: ['roofing-waterproofing', 'mep-systems']
-  },
-  {
-    id: 'mep-systems',
-    title: 'MEP Systems (Mechanical, Electrical, Plumbing)',
-    icon: <Wrench size={40} />,
-    shortDescription: 'Comprehensive MEP system quantity takeoffs and cost analysis.',
-    description: 'Our MEP takeoff service provides detailed quantity calculations for mechanical, electrical, and plumbing systems including equipment, piping, ductwork, wiring, and all related components.',
-    bannerImage: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    features: [
-      'HVAC equipment and ductwork',
-      'Electrical panels and wiring',
-      'Plumbing fixtures and piping',
-      'Control systems and automation',
-      'Fire protection systems',
-      'Low voltage and data systems',
-      'Energy management systems',
-      'Commissioning requirements'
-    ],
-    processSteps: [
-      {
-        title: 'System Analysis',
-        description: 'We review MEP drawings and specifications for all system requirements.'
-      },
-      {
-        title: 'Equipment Selection',
-        description: 'We specify appropriate equipment based on load calculations and codes.'
-      },
-      {
-        title: 'Distribution Systems',
-        description: 'We calculate quantities for all distribution piping, ductwork, and wiring.'
-      },
-      {
-        title: 'Complete Systems',
-        description: 'We provide integrated takeoffs for all MEP systems and coordination.'
-      }
-    ],
-    faqs: [
-      {
-        question: 'Do you coordinate between MEP trades?',
-        answer: 'Yes, we ensure proper coordination between mechanical, electrical, and plumbing systems.'
-      },
-      {
-        question: 'Can you handle smart building systems?',
-        answer: 'Yes, we work with advanced control systems, automation, and smart building technologies.'
-      }
-    ],
-    relatedServices: ['sitework-earthworks', 'concrete-takeoff']
-  },
-  {
-    id: 'sitework-earthworks',
-    title: 'Sitework, Earthworks, Landscaping, Utilities',
-    icon: <Activity size={40} />,
-    shortDescription: 'Complete site development quantity calculations and planning.',
-    description: 'Our sitework and earthworks service covers all site development aspects including excavation, utilities, landscaping, paving, and site improvements with environmental considerations.',
-    bannerImage: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    features: [
-      'Excavation and grading calculations',
-      'Utility installation planning',
-      'Landscaping and irrigation',
-      'Paving and hardscaping',
-      'Drainage and stormwater management',
-      'Site lighting and signage',
-      'Environmental compliance',
-      'Site security and fencing'
-    ],
-    processSteps: [
-      {
-        title: 'Site Analysis',
-        description: 'We analyze site conditions, topography, and development requirements.'
-      },
-      {
-        title: 'Utility Planning',
-        description: 'We plan utility routing and calculate installation requirements.'
-      },
-      {
-        title: 'Earthwork Optimization',
-        description: 'We optimize cut and fill to minimize material movement and costs.'
-      },
-      {
-        title: 'Complete Development',
-        description: 'We provide comprehensive site development plans and quantities.'
-      }
-    ],
-    faqs: [
-      {
-        question: 'Do you handle environmental permitting?',
-        answer: 'We assist with environmental compliance and can coordinate with permitting consultants.'
-      },
-      {
-        question: 'Can you optimize earthwork for cost savings?',
-        answer: 'Yes, we analyze cut and fill to balance earthwork and minimize import/export costs.'
-      }
-    ],
-    relatedServices: ['concrete-takeoff', 'masonry-takeoff']
+    relatedServices: ['quantity-takeoff', 'concrete-takeoff', 'masonry-takeoff']
   }
 ];
 
@@ -562,523 +768,360 @@ export const costEstimationServices: Service[] = [
   },
   {
     id: 'detailed-estimates',
-    title: 'Detailed Estimates (Schematic, DD, CD)',
-    icon: <FileText size={40} />,
-    shortDescription: 'Comprehensive detailed estimates at various design development stages.',
-    description: 'Our detailed estimation service provides comprehensive cost analysis at schematic design, design development, and construction document phases with increasing levels of accuracy and detail.',
+    title: 'Detailed Estimates',
+    icon: <ClipboardCheck size={40} />,
+    shortDescription: 'Comprehensive cost breakdowns with detailed quantities and unit pricing.',
+    description: 'Our detailed estimation service provides comprehensive cost analysis based on complete project documentation, helping you understand exact project costs.',
     bannerImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
     features: [
-      'Schematic design estimates',
-      'Design development estimates',
-      'Construction document estimates',
-      'Progressive accuracy improvement',
+      'Comprehensive cost analysis',
       'Detailed quantity takeoffs',
-      'Material and labor analysis',
-      'Subcontractor scope definition',
-      'Cost reconciliation tracking'
+      'Current market pricing',
+      'Labor and equipment costs',
+      'Overhead calculations',
+      'Detailed CSI breakdowns',
+      'Risk assessment',
+      'Value engineering options'
     ],
     processSteps: [
       {
-        title: 'Design Review',
-        description: 'We analyze drawings and specifications at the current design phase.'
+        title: 'Document Review',
+        description: 'We analyze all project documents and specifications.'
       },
       {
-        title: 'Detailed Takeoffs',
-        description: 'We perform comprehensive quantity takeoffs for all project elements.'
+        title: 'Quantity Takeoff',
+        description: 'We perform detailed quantity calculations for all elements.'
       },
       {
         title: 'Cost Development',
-        description: 'We apply current pricing to develop detailed cost estimates.'
+        description: 'We apply current market rates and develop comprehensive costs.'
       },
       {
-        title: 'Progressive Refinement',
-        description: 'We refine estimates as design develops and provide cost tracking.'
+        title: 'Final Report',
+        description: 'We deliver detailed estimates with full documentation.'
       }
     ],
     faqs: [
       {
-        question: 'How does accuracy improve through design phases?',
-        answer: 'Accuracy improves from ±15% at schematic to ±10% at DD to ±5% at construction documents.'
+        question: 'How accurate are detailed estimates?',
+        answer: 'Detailed estimates typically achieve accuracy within 5-10% of final costs.'
       },
       {
-        question: 'Do you track cost changes between phases?',
-        answer: 'Yes, we provide cost reconciliation reports showing changes between design phases.'
+        question: 'What documents do you need?',
+        answer: 'We need complete construction documents, specifications, and any relevant addenda.'
       }
     ],
     relatedServices: ['preliminary-estimates', 'bid-estimates']
   },
   {
     id: 'bid-estimates',
-    title: 'Bid Estimates (Tendering)',
-    icon: <TrendingUp size={40} />,
-    shortDescription: 'Competitive bid estimates for contractor selection and tendering.',
-    description: 'Our bid estimation service provides detailed competitive estimates for contractor tendering processes, ensuring accurate and competitive pricing for successful project procurement.',
+    title: 'Bid Estimates',
+    icon: <DollarSign size={40} />,
+    shortDescription: 'Competitive bid preparation with detailed analysis of costs and markups.',
+    description: 'Our bid estimation service helps contractors prepare competitive and accurate bids for construction projects, including detailed analysis of direct costs, overhead, and profit considerations.',
     bannerImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
     features: [
-      'Competitive bid preparation',
-      'Market rate analysis',
-      'Subcontractor coordination',
-      'Risk assessment and pricing',
-      'Value engineering opportunities',
-      'Bid strategy development',
-      'Schedule impact analysis',
-      'Contract term evaluation'
+      'Competitive pricing strategy',
+      'Detailed cost analysis',
+      'Markup optimization',
+      'Risk assessment',
+      'Subcontractor pricing',
+      'Overhead allocation',
+      'Profit analysis',
+      'Bid strategy development'
     ],
     processSteps: [
       {
         title: 'Bid Document Review',
-        description: 'We thoroughly review all bid documents and requirements.'
+        description: 'We analyze bid documents and requirements thoroughly.'
       },
       {
-        title: 'Competitive Analysis',
-        description: 'We analyze market conditions and competitive positioning.'
+        title: 'Cost Development',
+        description: 'We develop detailed direct costs and gather subcontractor quotes.'
       },
       {
-        title: 'Detailed Pricing',
-        description: 'We develop detailed pricing with current market rates.'
+        title: 'Markup Analysis',
+        description: 'We analyze appropriate markups and profit margins.'
       },
       {
-        title: 'Bid Finalization',
-        description: 'We finalize competitive bids with appropriate risk factors.'
+        title: 'Bid Preparation',
+        description: 'We prepare the final bid package with all required documentation.'
       }
     ],
     faqs: [
       {
         question: 'How do you ensure competitive pricing?',
-        answer: 'We use current market data, subcontractor quotes, and competitive analysis to ensure realistic pricing.'
+        answer: 'We analyze market conditions and historical bid data to optimize pricing strategy.'
       },
       {
-        question: 'Do you help with bid strategy?',
-        answer: 'Yes, we provide bid strategy recommendations based on project requirements and market conditions.'
+        question: 'Do you handle bid form preparation?',
+        answer: 'Yes, we prepare all required bid forms and documentation.'
       }
     ],
-    relatedServices: ['detailed-estimates', 'value-engineering']
+    relatedServices: ['detailed-estimates', 'conceptual-estimates']
   },
   {
-    id: 'conceptual-estimating',
-    title: 'Conceptual Estimating',
-    icon: <BarChart3 size={40} />,
-    shortDescription: 'High-level conceptual cost estimates for early project evaluation.',
-    description: 'Our conceptual estimating service provides high-level cost estimates based on basic project parameters and historical data, perfect for feasibility studies and early project evaluation.',
+    id: 'conceptual-estimates',
+    title: 'Conceptual Estimates',
+    icon: <Layers size={40} />,
+    shortDescription: 'Early project phase estimates based on conceptual designs and historical data.',
+    description: 'Our conceptual estimating service provides early-stage cost projections based on preliminary designs, historical data, and industry benchmarks to help guide project planning decisions.',
     bannerImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
     features: [
+      'Historical data analysis',
+      'Benchmark comparisons',
+      'Cost modeling',
       'Parameter-based estimating',
-      'Historical cost data analysis',
-      'Feasibility study support',
-      'Multiple scenario analysis',
-      'Order of magnitude pricing',
-      'Market trend incorporation',
-      'Risk and contingency planning',
-      'Investment planning support'
+      'Design alternatives',
+      'Project feasibility',
+      'Budget scenarios',
+      'Risk assessment'
     ],
     processSteps: [
       {
-        title: 'Parameter Definition',
-        description: 'We define key project parameters and requirements.'
+        title: 'Concept Review',
+        description: 'We analyze conceptual designs and project requirements.'
       },
       {
-        title: 'Historical Analysis',
-        description: 'We analyze historical data from similar projects.'
+        title: 'Data Analysis',
+        description: 'We analyze historical data and industry benchmarks.'
       },
       {
         title: 'Cost Modeling',
-        description: 'We develop parametric cost models for the project.'
+        description: 'We develop parametric cost models and scenarios.'
       },
       {
-        title: 'Scenario Development',
-        description: 'We provide multiple scenarios for project evaluation.'
+        title: 'Recommendations',
+        description: 'We provide cost guidance and recommendations.'
       }
     ],
     faqs: [
       {
-        question: 'When is conceptual estimating most useful?',
-        answer: 'Conceptual estimating is most valuable during feasibility studies and early project planning.'
+        question: 'What level of design is needed?',
+        answer: 'We can work with very preliminary designs, sketches, or even just project parameters.'
       },
       {
-        question: 'What level of detail is available at this stage?',
-        answer: 'Conceptual estimates provide order of magnitude costs with broad categories and significant contingencies.'
+        question: 'How do you handle design changes?',
+        answer: 'We can quickly update estimates as the design concept evolves.'
       }
     ],
-    relatedServices: ['preliminary-estimates', 'life-cycle-analysis']
+    relatedServices: ['preliminary-estimates', 'detailed-estimates']
   },
   {
-    id: 'labor-equipment-analysis',
-    title: 'Labor & Equipment Rate Analysis',
-    icon: <Users size={40} />,
-    shortDescription: 'Detailed labor and equipment cost analysis and rate development.',
-    description: 'Our labor and equipment analysis service provides detailed cost analysis for labor rates, productivity factors, and equipment costs to ensure accurate project pricing.',
+    id: 'labour-equipment-analysis',
+    title: 'Labour & Equipment Analysis',
+    icon: <Wrench size={40} />,
+    shortDescription: 'Detailed breakdown of labor costs, equipment requirements, and productivity rates.',
+    description: 'Our labor and equipment analysis service provides detailed assessment of workforce requirements, equipment needs, and productivity rates to optimize project resource allocation.',
     bannerImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
     features: [
-      'Local labor rate research',
-      'Productivity factor analysis',
-      'Equipment cost evaluation',
-      'Union vs. non-union analysis',
-      'Seasonal rate adjustments',
-      'Skill level requirements',
-      'Overtime and premium time',
-      'Benefit and burden calculations'
+      'Labor cost analysis',
+      'Equipment selection',
+      'Productivity rates',
+      'Resource scheduling',
+      'Crew composition',
+      'Equipment utilization',
+      'Cost optimization',
+      'Performance tracking'
     ],
     processSteps: [
       {
-        title: 'Market Research',
-        description: 'We research current labor and equipment rates in your market.'
-      },
-      {
-        title: 'Productivity Analysis',
-        description: 'We analyze productivity factors for different work types and conditions.'
+        title: 'Resource Assessment',
+        description: 'We analyze labor and equipment requirements.'
       },
       {
         title: 'Rate Development',
-        description: 'We develop comprehensive rate structures for estimating.'
+        description: 'We develop labor rates and equipment costs.'
       },
       {
-        title: 'Ongoing Updates',
-        description: 'We provide ongoing rate updates and market monitoring.'
+        title: 'Productivity Analysis',
+        description: 'We analyze productivity rates and factors.'
+      },
+      {
+        title: 'Resource Planning',
+        description: 'We create resource allocation plans.'
       }
     ],
     faqs: [
       {
-        question: 'How often are rates updated?',
-        answer: 'We update rates quarterly or as market conditions change significantly.'
+        question: 'How do you determine crew sizes?',
+        answer: 'We analyze task requirements, schedule constraints, and productivity factors.'
       },
       {
-        question: 'Do you account for regional differences?',
-        answer: 'Yes, we provide location-specific rates adjusted for local market conditions.'
+        question: 'Can you optimize equipment selection?',
+        answer: 'Yes, we analyze equipment options to find the most cost-effective solution.'
       }
     ],
     relatedServices: ['detailed-estimates', 'bid-estimates']
-  },
-  {
-    id: 'life-cycle-analysis',
-    title: 'Life-Cycle Cost Analysis',
-    icon: <Activity size={40} />,
-    shortDescription: 'Comprehensive life-cycle cost analysis for long-term value assessment.',
-    description: 'Our life-cycle cost analysis evaluates total ownership costs including initial construction, operations, maintenance, and end-of-life considerations for informed decision-making.',
-    bannerImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    features: [
-      'Initial cost analysis',
-      'Operating cost projections',
-      'Maintenance cost planning',
-      'Energy cost evaluation',
-      'Replacement cost scheduling',
-      'End-of-life considerations',
-      'Net present value calculations',
-      'Alternative comparison analysis'
-    ],
-    processSteps: [
-      {
-        title: 'Cost Category Definition',
-        description: 'We define all cost categories for the analysis period.'
-      },
-      {
-        title: 'Data Collection',
-        description: 'We gather cost data for all life-cycle phases.'
-      },
-      {
-        title: 'Analysis Development',
-        description: 'We develop comprehensive life-cycle cost models.'
-      },
-      {
-        title: 'Decision Support',
-        description: 'We provide clear recommendations for optimal value decisions.'
-      }
-    ],
-    faqs: [
-      {
-        question: 'What time period do you typically analyze?',
-        answer: 'We typically analyze 20-50 year periods depending on the facility type and purpose.'
-      },
-      {
-        question: 'How do you account for inflation and escalation?',
-        answer: 'We use appropriate escalation factors and present value calculations for accurate comparison.'
-      }
-    ],
-    relatedServices: ['value-engineering', 'conceptual-estimating']
-  },
-  {
-    id: 'value-engineering',
-    title: 'Value Engineering Support',
-    icon: <CheckCircle size={40} />,
-    shortDescription: 'Strategic value engineering analysis to optimize cost and performance.',
-    description: 'Our value engineering service analyzes project elements to identify cost reduction opportunities while maintaining or improving functionality and quality.',
-    bannerImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    features: [
-      'Function analysis workshops',
-      'Alternative solution development',
-      'Cost-benefit analysis',
-      'Performance impact assessment',
-      'Implementation planning',
-      'Risk evaluation',
-      'Life-cycle cost comparison',
-      'Stakeholder collaboration'
-    ],
-    processSteps: [
-      {
-        title: 'Function Analysis',
-        description: 'We analyze project functions and performance requirements.'
-      },
-      {
-        title: 'Alternative Development',
-        description: 'We develop creative alternatives that maintain functionality.'
-      },
-      {
-        title: 'Cost Analysis',
-        description: 'We analyze costs and benefits of each alternative.'
-      },
-      {
-        title: 'Implementation Plan',
-        description: 'We develop implementation plans for selected alternatives.'
-      }
-    ],
-    faqs: [
-      {
-        question: 'When is the best time for value engineering?',
-        answer: 'Value engineering is most effective during design development when changes have minimal impact.'
-      },
-      {
-        question: 'What cost savings can typically be achieved?',
-        answer: 'Value engineering typically identifies 5-15% potential savings while maintaining quality.'
-      }
-    ],
-    relatedServices: ['life-cycle-analysis', 'detailed-estimates']
-  },
-  {
-    id: 'change-order-estimates',
-    title: 'Change Order Estimates',
-    icon: <DollarSign size={40} />,
-    shortDescription: 'Accurate change order pricing and impact analysis.',
-    description: 'Our change order estimation service provides accurate pricing for project changes including cost and schedule impacts to support informed decision-making during construction.',
-    bannerImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    features: [
-      'Change order pricing',
-      'Schedule impact analysis',
-      'Cost vs. benefit evaluation',
-      'Alternative solution pricing',
-      'Contract compliance review',
-      'Documentation support',
-      'Negotiation assistance',
-      'Budget impact tracking'
-    ],
-    processSteps: [
-      {
-        title: 'Change Analysis',
-        description: 'We analyze the scope and impact of proposed changes.'
-      },
-      {
-        title: 'Cost Development',
-        description: 'We develop accurate pricing for labor, materials, and equipment.'
-      },
-      {
-        title: 'Impact Assessment',
-        description: 'We assess schedule and cost impacts on the overall project.'
-      },
-      {
-        title: 'Documentation',
-        description: 'We provide complete documentation for change order processing.'
-      }
-    ],
-    faqs: [
-      {
-        question: 'How quickly can you provide change order estimates?',
-        answer: 'We typically provide change order estimates within 24-48 hours depending on complexity.'
-      },
-      {
-        question: 'Do you help with change order negotiations?',
-        answer: 'Yes, we provide cost analysis and documentation to support fair change order negotiations.'
-      }
-    ],
-    relatedServices: ['detailed-estimates', 'value-engineering']
   }
 ];
 
 export const specializedServices: Service[] = [
   {
-    id: 'trade-specific-hvac',
-    title: 'Trade-Specific (HVAC, Electrical, Plumbing)',
-    icon: <Wrench size={40} />,
-    shortDescription: 'Specialized estimating for individual trade contractors.',
-    description: 'Our trade-specific estimating service provides detailed cost analysis for individual trades including HVAC, electrical, and plumbing contractors with trade-specific expertise.',
-    bannerImage: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    id: 'renovation-estimating',
+    title: 'Renovation Cost Estimating',
+    icon: <Hammer size={40} />,
+    shortDescription: 'Expert renovation cost estimating services for residential and commercial remodeling projects.',
+    description: `Paradise Estimating delivers expert renovation estimating services for both residential and commercial projects. Whether you're remodeling a kitchen or retrofitting a retail space, our cost estimates help you plan with confidence and win profitable jobs. Our renovation cost estimating experts provide highly accurate, detailed estimates for residential renovations, commercial remodels, and adaptive reuse projects—so you never overpay or underbid.`,
+    bannerImage: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
     features: [
-      'HVAC system estimating',
-      'Electrical system takeoffs',
-      'Plumbing system analysis',
-      'Trade-specific material pricing',
-      'Installation method analysis',
-      'Code compliance verification',
-      'Coordination requirements',
-      'Specialty equipment pricing'
+      'Kitchen & Bathroom Renovation Estimates',
+      'Full-Home Remodels and Additions',
+      'Historic Home Restoration Consulting',
+      'Commercial Retrofit Budgeting',
+      'Tenant Improvement Estimating',
+      'Value Engineering Options'
     ],
     processSteps: [
       {
-        title: 'Trade Analysis',
-        description: 'We analyze trade-specific drawings and specifications.'
+        title: 'Digital Takeoff',
+        description: 'We perform detailed building renovation takeoffs using advanced software and your plans.'
       },
       {
-        title: 'System Calculations',
-        description: 'We perform detailed calculations for each trade system.'
+        title: 'Line-Item Costing',
+        description: 'Every material, labor hour, and subcontractor cost is accounted for in your restoration project estimate.'
       },
       {
-        title: 'Material Pricing',
-        description: 'We apply current trade-specific material and labor pricing.'
+        title: 'Code Compliance Review',
+        description: 'We ensure all estimates account for current building codes and regulations.'
       },
       {
-        title: 'Coordination Review',
-        description: 'We review coordination requirements between trades.'
+        title: 'Value Engineering',
+        description: 'We help optimize scope to meet your budget without sacrificing quality.'
+      }
+    ],
+    industries: [
+      {
+        title: 'Homeowners & Investors',
+        description: 'Residential renovation and remodeling projects.'
+      },
+      {
+        title: 'Commercial Property Owners',
+        description: 'Office, retail, and commercial space renovations.'
+      },
+      {
+        title: 'Contractors',
+        description: 'Renovation contractors and general contractors.'
+      },
+      {
+        title: 'Property Managers',
+        description: 'Multi-unit renovation and improvement projects.'
       }
     ],
     faqs: [
       {
-        question: 'Do you work with trade contractors directly?',
-        answer: 'Yes, we work closely with trade contractors to ensure accurate pricing and specifications.'
+        question: "Do you offer estimates for historic building renovations?",
+        answer: "Yes, our historic building renovation estimates include material sourcing, preservation requirements, and code compliance for older structures."
       },
       {
-        question: 'Can you estimate complex MEP systems?',
-        answer: 'Yes, we have expertise in complex mechanical, electrical, and plumbing systems.'
+        question: "What's covered in your TI estimating?",
+        answer: "Our tenant improvement estimating services include partitions, lighting, HVAC, electrical (MEP), flooring, paint, restrooms, and ADA upgrades."
+      },
+      {
+        question: "Do you provide estimates without full plans?",
+        answer: "Yes, we can work from sketches, scopes, or even site photos. Detailed plans are ideal, but not required."
+      },
+      {
+        question: "Can I request just a kitchen or bathroom estimate?",
+        answer: "Yes, many clients request targeted estimates for kitchens, baths, or specific renovation scopes."
       }
     ],
-    relatedServices: ['mep-systems', 'detailed-estimates']
+    relatedServices: ['cost-estimation', 'value-engineering', 'quantity-takeoff'],
+    sampleReport: {
+      available: true,
+      description: 'View a sample renovation cost estimate report to see our detailed approach.',
+    },
+    callToAction: {
+      primary: 'Get Your Custom Estimate',
+      secondary: 'Learn More',
+      description: 'Ready for stress-free renovation planning? Let us take the guesswork out of renovation costs.'
+    }
   },
   {
-    id: 'civil-infrastructure',
-    title: 'Civil & Infrastructure Projects',
-    icon: <Building2 size={40} />,
-    shortDescription: 'Comprehensive estimating for civil and infrastructure projects.',
-    description: 'Our civil and infrastructure estimating service covers roads, bridges, utilities, and public works projects with specialized knowledge of civil construction methods and materials.',
-    bannerImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    id: 'csi-trades-estimating',
+    title: 'CSI Trades Estimating',
+    icon: <Settings size={40} />,
+    shortDescription: 'Comprehensive estimating services following CSI MasterFormat standards.',
+    description: 'Our CSI Trades Estimating service provides detailed cost estimates organized according to the Construction Specifications Institute (CSI) MasterFormat, ensuring standardized and comprehensive project documentation.',
+    bannerImage: 'https://images.unsplash.com/photo-1581092921461-39b9d08a9b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
     features: [
-      'Road and highway construction',
-      'Bridge and structure estimating',
-      'Utility installation analysis',
-      'Environmental compliance costs',
-      'Traffic control planning',
-      'Materials testing requirements',
-      'Right-of-way considerations',
-      'Public works specifications'
+      'CSI MasterFormat compliance',
+      'Division-based cost breakdown',
+      'Standardized specifications',
+      'Trade-specific estimates',
+      'Material and labor analysis',
+      'Equipment and tools costing',
+      'Overhead and profit calculations',
+      'Bid package preparation'
     ],
     processSteps: [
       {
-        title: 'Project Scope Analysis',
-        description: 'We analyze civil drawings and project specifications.'
+        title: 'Project Analysis',
+        description: 'We analyze project requirements and specifications.'
       },
       {
-        title: 'Quantity Calculations',
-        description: 'We calculate quantities for earthwork, materials, and construction.'
+        title: 'CSI Division Breakdown',
+        description: 'We organize estimates according to CSI MasterFormat divisions.'
       },
       {
-        title: 'Specialized Pricing',
-        description: 'We apply civil construction pricing and methods.'
+        title: 'Trade-Specific Estimating',
+        description: 'We prepare detailed estimates for each trade division.'
       },
       {
-        title: 'Compliance Review',
-        description: 'We ensure compliance with public works and environmental requirements.'
+        title: 'Documentation',
+        description: 'We compile comprehensive CSI-formatted estimates.'
       }
     ],
     faqs: [
       {
-        question: 'Do you handle environmental compliance costs?',
-        answer: 'Yes, we include environmental monitoring, permitting, and compliance costs.'
+        question: 'What is CSI MasterFormat?',
+        answer: 'CSI MasterFormat is a standardized system for organizing construction specifications and cost estimates into divisions and sections.'
       },
       {
-        question: 'Can you estimate complex infrastructure projects?',
-        answer: 'Yes, we have experience with bridges, highways, utilities, and major infrastructure.'
+        question: 'How does CSI formatting benefit my project?',
+        answer: 'CSI formatting ensures consistency, improves communication, and facilitates better project organization and cost control.'
       }
     ],
-    relatedServices: ['sitework-earthworks', 'specialized-estimating']
+    relatedServices: ['detailed-estimates', 'bid-estimates']
   },
   {
-    id: 'residential-commercial-industrial',
-    title: 'Residential / Commercial / Industrial',
-    icon: <Home size={40} />,
-    shortDescription: 'Sector-specific estimating expertise for different project types.',
-    description: 'Our sector-specific estimating service provides specialized knowledge and pricing for residential, commercial, and industrial projects with appropriate methods and standards for each sector.',
-    bannerImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    id: 'value-engineering',
+    title: 'Value Engineering',
+    icon: <Settings size={40} />,
+    shortDescription: 'Cost optimization through value engineering analysis.',
+    description: 'Our Value Engineering service helps optimize project costs while maintaining quality and functionality through systematic analysis and alternative solutions.',
+    bannerImage: 'https://images.unsplash.com/photo-1581092921461-39b9d08a9b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
     features: [
-      'Residential construction estimating',
-      'Commercial building analysis',
-      'Industrial facility estimating',
-      'Sector-specific codes and standards',
-      'Market-appropriate pricing',
-      'Quality level adjustments',
-      'Regulatory compliance costs',
-      'Sector-specific scheduling'
+      'Cost-benefit analysis',
+      'Alternative solutions',
+      'Life cycle costing',
+      'Material optimization',
+      'Construction method analysis',
+      'Energy efficiency options',
+      'Maintenance considerations',
+      'Sustainability improvements'
     ],
     processSteps: [
       {
-        title: 'Sector Analysis',
-        description: 'We analyze project requirements specific to the building sector.'
+        title: 'Function Analysis',
+        description: 'We analyze project functions and requirements.'
       },
       {
-        title: 'Standards Application',
-        description: 'We apply appropriate codes, standards, and quality levels.'
-      },
-      {
-        title: 'Market Pricing',
-        description: 'We use sector-appropriate pricing and construction methods.'
-      },
-      {
-        title: 'Compliance Verification',
-        description: 'We verify compliance with sector-specific requirements.'
+        title: 'Alternative Development',
+        description: 'We develop alternative solutions and approaches.'
       }
     ],
     faqs: [
       {
-        question: 'How do you adjust for different quality levels?',
-        answer: 'We adjust pricing based on finish quality, materials, and construction standards for each sector.'
+        question: 'What is value engineering?',
+        answer: 'Value engineering is a systematic approach to improving project value by analyzing functions and costs to identify optimal solutions.'
       },
       {
-        question: 'Do you understand sector-specific codes?',
-        answer: 'Yes, we maintain current knowledge of residential, commercial, and industrial building codes.'
+        question: 'When should value engineering be performed?',
+        answer: 'Value engineering is most effective when performed early in the design phase but can provide benefits at any project stage.'
       }
     ],
     relatedServices: ['detailed-estimates', 'preliminary-estimates']
-  },
-  {
-    id: 'green-building-leed',
-    title: 'Green Building / LEED Estimating',
-    icon: <Activity size={40} />,
-    shortDescription: 'Specialized estimating for sustainable and LEED-certified projects.',
-    description: 'Our green building estimating service provides cost analysis for sustainable construction including LEED certification requirements, green materials, and energy-efficient systems.',
-    bannerImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    features: [
-      'LEED certification cost analysis',
-      'Sustainable material pricing',
-      'Energy-efficient system costs',
-      'Green roof and wall systems',
-      'Renewable energy integration',
-      'Water conservation systems',
-      'Indoor air quality measures',
-      'Commissioning requirements'
-    ],
-    processSteps: [
-      {
-        title: 'Sustainability Goals',
-        description: 'We analyze sustainability goals and certification requirements.'
-      },
-      {
-        title: 'Green Systems Analysis',
-        description: 'We evaluate green building systems and materials.'
-      },
-      {
-        title: 'Premium Cost Analysis',
-        description: 'We analyze cost premiums for sustainable features.'
-      },
-      {
-        title: 'Certification Support',
-        description: 'We provide cost analysis for certification processes.'
-      }
-    ],
-    faqs: [
-      {
-        question: 'What is the typical cost premium for LEED certification?',
-        answer: 'LEED premiums typically range from 2-8% depending on certification level and project type.'
-      },
-      {
-        question: 'Do you include certification and commissioning costs?',
-        answer: 'Yes, we include all costs related to certification, commissioning, and documentation.'
-      }
-    ],
-    relatedServices: ['life-cycle-analysis', 'value-engineering']
   }
 ];
 
@@ -1368,7 +1411,7 @@ export const softwareBasedServices: Service[] = [
   {
     id: 'proest-buildertrend',
     title: 'ProEst / CoConstruct / Buildertrend',
-    icon: <Package size={40} />,
+    icon: <Package2 size={40} />,
     shortDescription: 'Comprehensive project management and estimating integration.',
     description: 'Our integrated platform service combines estimating with project management using ProEst, CoConstruct, and Buildertrend for complete project lifecycle management.',
     bannerImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
@@ -1557,7 +1600,7 @@ export const documentationServices: Service[] = [
     relatedServices: ['material-cost-reports', 'bid-package-prep']
   },
   {
-    id: 'bid-package-prep',
+    id: 'bid-package-preparation',
     title: 'Bid Package Preparation',
     icon: <Package size={40} />,
     shortDescription: 'Complete bid package development for contractor procurement.',
@@ -1574,10 +1617,10 @@ export const documentationServices: Service[] = [
       'Documentation organization'
     ],
     processSteps: [
-      {
-        title: 'Scope Definition',
-        description: 'We clearly define the scope of work and requirements.'
-      },
+      // {
+      //   title: 'Scope Definition
+      //   description: 'We clearly define the scope of work and requirements.'
+      // },
       {
         title: 'Document Development',
         description: 'We develop comprehensive bid documents and specifications.'
@@ -1939,6 +1982,112 @@ export const projectSupportServices: Service[] = [
 
 export const constructionManagementServices: Service[] = [
   {
+    id: 'turnkey-design-build',
+    title: 'Turnkey / Design-Build / EPCM',
+    icon: <Workflow size={40} />,
+    shortDescription: 'End-to-end estimating for turnkey, design-build, and EPCM projects.',
+    description: 'Paradise Estimating provides full lifecycle estimating for Turnkey, Design-Build, and EPCM (Engineering, Procurement, and Construction Management) projects. From concept to completion, our expert team delivers accurate, detailed estimates to ensure financial control, optimize costs, and mitigate risks throughout the entire project.',
+    bannerImage: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    features: [
+      'End-to-end construction contracts',
+      'Integrated design-build solutions',
+      'EPCM projects involving complex, multi-disciplinary coordination',
+      'All-Stage Estimating (Concept → CD → Handover)',
+      'Lump Sum Pricing Support with Risk Provisions',
+      'Cost Breakdown Structure (CBS) Development',
+      'Integrated Design & Cost Review',
+      'Subcontractor Scope Splits & Package Budgets',
+      'Cash Flow & Milestone-Based Payment Valuations'
+    ],
+    processSteps: [
+      {
+        title: 'Project Analysis',
+        description: 'We analyze project requirements, scope, and objectives to develop a comprehensive understanding.'
+      },
+      {
+        title: 'Risk Assessment',
+        description: 'We identify potential risks and develop appropriate contingency plans and provisions.'
+      },
+      {
+        title: 'Cost Development',
+        description: 'We create detailed cost estimates with comprehensive breakdowns and package budgets.'
+      },
+      {
+        title: 'Value Engineering',
+        description: 'We work with design teams to optimize costs while maintaining project objectives.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'What types of projects do you handle?',
+        answer: 'We handle all types of turnkey, design-build, and EPCM projects across various sectors including commercial, industrial, and institutional construction.'
+      },
+      {
+        question: 'How do you manage project risks?',
+        answer: 'We emphasize proactive risk assessment and contingency planning, identifying potential risks early and incorporating appropriate provisions in our estimates.'
+      },
+      {
+        question: 'Can you support the entire project lifecycle?',
+        answer: 'Yes, we provide full lifecycle support from early design stages to final project delivery, ensuring comprehensive cost management throughout.'
+      }
+    ],
+    relatedServices: ['cost-estimation', 'quantity-takeoff', 'preliminary-estimates'],
+    callToAction: {
+      primary: 'Get Started Today',
+      secondary: 'Learn More',
+      description: 'Contact us to discuss how our turnkey, design-build, and EPCM estimating services can provide clarity, control, and efficiency for your project.'
+    }
+  },
+  {
+    id: 'retail-construction',
+    title: 'Retail / Merchandise Projects',
+    icon: <Store className="h-8 w-8 text-navy" />,
+    shortDescription: 'Expert estimating services for retail rollouts and merchandise projects.',
+    description: 'At Paradise Estimating, we specialize in delivering accurate, fast, and comprehensive estimating services for retail and merchandise construction projects. Whether you\'re opening flagship stores, franchising, or updating existing locations, our expert team ensures your projects are cost-effective, completed on schedule, and in full compliance with your brand\'s standards.',
+    bannerImage: 'https://images.unsplash.com/photo-1604754742629-3e0474f7d578?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    features: [
+      'Fast-track estimating for rollouts & refreshes',
+      'Joinery, fixtures & signage quantification',
+      'Vendor comparison & rate analysis',
+      'Fit-out BOQ aligned to branding standards',
+      'Unit pricing for replicated store formats',
+      'Cost summary by location for regional rollouts'
+    ],
+    processSteps: [
+      {
+        title: 'Project Assessment',
+        description: 'We analyze your retail project requirements, branding standards, and timeline constraints.'
+      },
+      {
+        title: 'Cost Analysis',
+        description: 'We develop detailed cost estimates considering all project elements and regional factors.'
+      },
+      {
+        title: 'Value Engineering',
+        description: 'We identify cost optimization opportunities while maintaining brand standards.'
+      },
+      {
+        title: 'Documentation',
+        description: 'We prepare comprehensive BOQs and cost reports aligned with your requirements.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'What types of retail projects do you handle?',
+        answer: 'We handle all types of retail projects including flagship stores, franchise rollouts, restaurants, and concept stores.'
+      },
+      {
+        question: 'How do you ensure consistency across multiple locations?',
+        answer: 'We use standardized templates and unit pricing models while accounting for regional variations to maintain consistency.'
+      },
+      {
+        question: 'Can you work with our brand standards?',
+        answer: 'Yes, we ensure all estimates align with your specific branding and design guidelines while maintaining cost efficiency.'
+      }
+    ],
+    relatedServices: ['commercial-construction', 'quantity-takeoff', 'cost-estimation']
+  },
+  {
     id: 'project-execution',
     title: 'Project Execution',
     icon: <Activity size={40} />,
@@ -2269,6 +2418,351 @@ export const constructionManagementServices: Service[] = [
   }
 ];
 
+export const industriesWeServe: Service[] = [
+  {
+    id: 'government',
+    title: 'Public / Government Projects',
+    icon: <Landmark size={40} />,
+    shortDescription: 'Comprehensive estimating services for government buildings, public facilities, and infrastructure projects.',
+    description: 'Expert cost estimation services for public sector and government construction projects, ensuring compliance with all regulatory requirements and public procurement standards.',
+    bannerImage: 'https://images.unsplash.com/photo-1523365154888-8a758819b722?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    features: [
+      'Government Buildings',
+      'Public Infrastructure',
+      'Educational Facilities',
+      'Healthcare Facilities',
+      'Municipal Buildings',
+      'Public Safety Facilities'
+    ],
+    processSteps: [
+      {
+        title: 'Requirements Analysis',
+        description: 'We analyze project requirements and public sector specifications.'
+      },
+      {
+        title: 'Compliance Review',
+        description: 'We ensure compliance with government regulations and standards.'
+      },
+      {
+        title: 'Cost Development',
+        description: 'We develop detailed cost estimates following public procurement guidelines.'
+      },
+      {
+        title: 'Documentation',
+        description: 'We provide comprehensive documentation meeting government requirements.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Do you handle government procurement requirements?',
+        answer: 'Yes, we have extensive experience with public sector procurement processes and requirements.'
+      },
+      {
+        question: 'Can you work with public funding regulations?',
+        answer: 'Yes, we ensure compliance with all public funding and reporting requirements.'
+      }
+    ],
+    relatedServices: ['quantity-takeoff', 'cost-estimation', 'preliminary-estimates']
+  },
+  {
+    id: 'residential-construction',
+    title: 'Residential Projects',
+    icon: <Home size={40} />,
+    shortDescription: 'Detailed cost estimation for residential construction projects of all sizes.',
+    description: 'Comprehensive estimating services for residential construction, from single-family homes to multi-unit developments.',
+    bannerImage: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    features: [
+      'Single-Family Homes',
+      'Multi-Family Developments',
+      'Apartment Complexes',
+      'Custom Home Building',
+      'Residential Renovations',
+      'Housing Communities'
+    ],
+    processSteps: [
+      {
+        title: 'Project Analysis',
+        description: 'We analyze residential project requirements and specifications.'
+      },
+      {
+        title: 'Detailed Estimation',
+        description: 'We provide comprehensive cost estimates for all components.'
+      },
+      {
+        title: 'Value Engineering',
+        description: 'We identify cost-saving opportunities without compromising quality.'
+      },
+      {
+        title: 'Final Review',
+        description: 'We review and finalize estimates with stakeholders.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'What types of residential projects do you handle?',
+        answer: 'We handle all types of residential projects from single-family homes to large multi-family developments.'
+      },
+      {
+        question: 'Do you provide estimates for custom homes?',
+        answer: 'Yes, we provide detailed estimates for custom home projects with unique specifications.'
+      }
+    ],
+    relatedServices: ['quantity-takeoff', 'cost-estimation', 'preliminary-estimates']
+  },
+  {
+    id: 'commercial-construction',
+    title: 'Commercial / Office Projects',
+    icon: <Building2 size={40} />,
+    shortDescription: 'Expert cost estimation for commercial and office building projects.',
+    description: `At Paradise Estimating, we understand that accurate commercial construction estimates are the foundation of profitable projects. Our team of certified estimators combines decades of industry experience with cutting-edge technology to deliver precise, comprehensive estimates that help you win more bids and maximize profitability.
+
+    Our commercial estimating specialists meticulously analyze every aspect of your project, from foundation to finish. We utilize advanced takeoff software and industry-leading databases to ensure every material, labor hour, and equipment cost is accounted for with precision.`,
+    bannerImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    features: [
+      'Unmatched Accuracy & Detail: Meticulous analysis of all project components',
+      'Industry Expertise: Over 15 years of combined commercial construction experience',
+      'Technology-Driven Solutions: Latest estimating software and digital tools',
+      'Competitive Turnaround Times: Quick delivery without compromising quality',
+      'Comprehensive Coverage: From shell & core to tenant improvements',
+      'Value Engineering: Cost optimization without compromising quality'
+    ],
+    processSteps: [
+      {
+        title: 'Project Analysis',
+        description: 'Thorough review of plans, specifications, and requirements'
+      },
+      {
+        title: 'Detailed Takeoff',
+        description: 'Precise quantity calculations using advanced software'
+      },
+      {
+        title: 'Cost Analysis',
+        description: 'Comprehensive pricing with current market rates'
+      },
+      {
+        title: 'Quality Review',
+        description: 'Multi-point verification for accuracy'
+      }
+    ],
+    industries: [
+      {
+        title: 'Office Buildings',
+        description: 'Corporate headquarters, business parks, and professional offices'
+      },
+      {
+        title: 'Retail Centers',
+        description: 'Shopping malls, strip centers, and standalone retail'
+      },
+      {
+        title: 'Mixed-Use Developments',
+        description: 'Combined retail, office, and residential projects'
+      },
+      {
+        title: 'Medical Facilities',
+        description: 'Hospitals, clinics, and medical office buildings'
+      }
+    ],
+    faqs: [
+      {
+        question: "What types of commercial projects do you handle?",
+        answer: "We handle all types of commercial projects including office buildings, retail centers, medical facilities, and mixed-use developments."
+      },
+      {
+        question: "How accurate are your commercial estimates?",
+        answer: "Our estimates are typically within 2-3% of final costs, thanks to our detailed process and extensive database of current pricing."
+      },
+      {
+        question: "What's included in your commercial estimates?",
+        answer: "Our estimates include material quantities, labor costs, equipment costs, overhead calculations, and detailed breakdowns by CSI division."
+      },
+      {
+        question: "How long does a commercial estimate take?",
+        answer: "Most commercial estimates are completed within 5-7 business days, depending on project size and complexity."
+      }
+    ],
+    relatedServices: ['quantity-takeoff', 'cost-estimation', 'preliminary-estimates'],
+    sampleReport: {
+      available: true,
+      description: 'View a sample of our detailed commercial construction estimate reports.',
+      previewLink: '[Link to sample report]'
+    },
+    callToAction: {
+      primary: 'Request an Estimate',
+      secondary: 'View Sample Report',
+      description: 'Get accurate commercial construction estimates from certified professionals.'
+    }
+  },
+  {
+    id: 'retail-construction',
+    title: 'Retail / Merchandise Projects',
+    icon: <Store size={40} />,
+    shortDescription: 'Specialized estimation for retail and merchandising construction projects.',
+    description: 'Comprehensive cost estimation services for retail construction projects, from individual stores to shopping centers.',
+    bannerImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    features: [
+      'Retail Stores',
+      'Shopping Centers',
+      'Department Stores',
+      'Specialty Retail',
+      'Restaurant Spaces',
+      'Mall Developments'
+    ],
+    processSteps: [
+      {
+        title: 'Requirements Review',
+        description: 'We analyze retail-specific requirements and brand standards.'
+      },
+      {
+        title: 'Design Integration',
+        description: 'We incorporate retail design and merchandising elements.'
+      },
+      {
+        title: 'Cost Development',
+        description: 'We develop detailed cost estimates for all components.'
+      },
+      {
+        title: 'Documentation',
+        description: 'We provide comprehensive documentation.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Can you work with retail brand standards?',
+        answer: 'Yes, we ensure compliance with specific retail brand requirements and standards.'
+      },
+      {
+        question: 'Do you handle mall tenant improvements?',
+        answer: 'Yes, we provide detailed estimates for mall tenant improvements and retail renovations.'
+      }
+    ],
+    relatedServices: ['quantity-takeoff', 'cost-estimation', 'preliminary-estimates']
+  },
+
+  {
+    id: 'turnkey-design-build',
+    title: 'Turnkey / Design-Build / EPCM Projects',
+    icon: <Workflow size={40} />,
+    shortDescription: 'Expert estimation for turnkey and design-build construction projects.',
+    description: 'Comprehensive cost estimation services for turnkey, design-build, and EPCM (Engineering, Procurement, Construction Management) projects.',
+    bannerImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    features: [
+      'Turnkey Projects',
+      'Design-Build Projects',
+      'EPCM Projects',
+      'Integrated Project Delivery',
+      'Fast-Track Construction',
+      'Project Management'
+    ],
+    processSteps: [
+      {
+        title: 'Project Planning',
+        description: 'We analyze project requirements and develop integrated solutions.'
+      },
+      {
+        title: 'Design Development',
+        description: 'We work with design teams to optimize costs during development.'
+      },
+      {
+        title: 'Cost Development',
+        description: 'We develop comprehensive cost estimates for all project phases.'
+      },
+      {
+        title: 'Documentation',
+        description: 'We provide detailed documentation for all project components.'
+      }
+    ],
+    faqs: [
+      {
+        question: 'Do you handle complete turnkey projects?',
+        answer: 'Yes, we provide comprehensive estimates for complete turnkey project delivery.'
+      },
+      {
+        question: 'Can you work with design-build teams?',
+        answer: 'Yes, we collaborate with design-build teams to provide integrated cost solutions.'
+      }
+    ],
+    relatedServices: ['quantity-takeoff', 'cost-estimation', 'preliminary-estimates']
+  },
+  {
+    id: 'industrial-construction',
+    title: 'Industrial & Warehousing Construction',
+    icon: <Factory size={40} />,
+    shortDescription: 'Comprehensive estimating services for industrial and warehousing projects, from manufacturing plants to distribution centers.',
+    description: `At Paradise Estimating, we bring decades of experience in industrial and warehousing construction estimating. From manufacturing plants to distribution centers, our team ensures your project is meticulously costed, optimizing every aspect of the build, from structural systems to specialized equipment integration.
+
+    Our industrial construction estimating services cover all aspects of your project, ensuring accurate cost predictions and efficient project execution. We understand the unique challenges of industrial construction and provide tailored solutions for each project type.`,
+    bannerImage: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+    features: [
+      'Manufacturing Plants & Production Facilities',
+      'Distribution Centers & Logistics Hubs',
+      'Cold Storage & Automated Warehouses',
+      'Specialized Equipment Integration',
+      'MEP Systems Integration',
+      'Site Services & External Works'
+    ],
+    processSteps: [
+      {
+        title: 'Project Analysis',
+        description: 'Detailed review of project requirements and specifications.'
+      },
+      {
+        title: 'Cost Modeling',
+        description: 'Development of tailored cost models for your specific project type.'
+      },
+      {
+        title: 'Quantity Takeoff',
+        description: 'Precise calculations for all materials and systems.'
+      },
+      {
+        title: 'Final Estimation',
+        description: 'Comprehensive cost estimation with detailed breakdowns.'
+      }
+    ],
+    industries: [
+      {
+        title: 'Manufacturing',
+        description: 'Production facilities and industrial plants.'
+      },
+      {
+        title: 'Logistics',
+        description: 'Distribution centers and warehousing facilities.'
+      },
+      {
+        title: 'Cold Storage',
+        description: 'Temperature-controlled storage facilities.'
+      },
+      {
+        title: 'Automated Facilities',
+        description: 'Modern automated warehousing systems.'
+      }
+    ],
+    faqs: [
+      {
+        question: "How do you handle specialized equipment integration?",
+        answer: "We work closely with equipment suppliers and manufacturers to ensure accurate cost estimation for installation and integration of specialized industrial equipment."
+      },
+      {
+        question: "Do you provide estimates for MEP systems?",
+        answer: "Yes, we provide comprehensive estimates for all mechanical, electrical, and plumbing systems specific to industrial facilities."
+      },
+      {
+        question: "Can you handle large-scale industrial projects?",
+        answer: "Absolutely. We have extensive experience with large-scale industrial projects and provide detailed estimates for projects of any size."
+      },
+      {
+        question: "What's included in your industrial construction estimates?",
+        answer: "Our estimates include structural systems, equipment integration, MEP systems, site work, and all other aspects specific to industrial construction."
+      }
+    ],
+    relatedServices: ['structural-steel', 'mep-systems', 'sitework-earthworks'],
+    callToAction: {
+      primary: 'Get Your Industrial Project Estimated',
+      secondary: 'Learn More About Our Process',
+      description: 'Let us assist in your next industrial or warehousing project by delivering precise, tailored estimating services.'
+    }
+  }
+];
+
 export const allServices = [
   ...quantityTakeoffServices,
   ...costEstimationServices,
@@ -2276,5 +2770,6 @@ export const allServices = [
   ...softwareBasedServices,
   ...documentationServices,
   ...projectSupportServices,
-  ...constructionManagementServices
+  ...constructionManagementServices,
+  ...industriesWeServe
 ];

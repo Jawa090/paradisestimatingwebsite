@@ -59,18 +59,14 @@ const Navbar = () => {
     { name: 'Preliminary / Budget Estimates', path: '/services/preliminary-estimates' },
     { name: 'Detailed Estimates', path: '/services/detailed-estimates' },
     { name: 'Bid Estimates', path: '/services/bid-estimates' },
-    { name: 'Conceptual Estimating', path: '/services/conceptual-estimating' },
-    { name: 'Labor & Equipment Analysis', path: '/services/labor-equipment-analysis' },
-    { name: 'Life-Cycle Cost Analysis', path: '/services/life-cycle-analysis' },
-    { name: 'Value Engineering', path: '/services/value-engineering' },
-    { name: 'Change Order Estimates', path: '/services/change-order-estimates' }
+    { name: 'Conceptual Estimates', path: '/services/conceptual-estimates' },
+    { name: 'Labour & Equipment Analysis', path: '/services/labour-equipment-analysis' }
   ];
 
   const specializedLinks = [
-    { name: 'Trade-Specific Estimating', path: '/services/trade-specific-hvac' },
-    { name: 'Civil & Infrastructure', path: '/services/civil-infrastructure' },
-    { name: 'Residential / Commercial / Industrial', path: '/services/residential-commercial-industrial' },
-    { name: 'Green Building / LEED', path: '/services/green-building-leed' }
+    { name: 'CSI Trades Estimating', path: '/services/csi-trades-estimating' },
+    { name: 'Renovation Estimating', path: '/services/renovation-estimating' },
+    { name: 'Value Engineering', path: '/services/value-engineering' }
   ];
 
   const softwareLinks = [
@@ -109,6 +105,17 @@ const Navbar = () => {
     { name: 'Safety & Compliance', path: '/services/safety-compliance' },
     { name: 'Financial & Legal', path: '/services/financial-legal' }
   ];
+
+  const industriesWeServe = [
+    { name: 'Public / Government Projects', path: '/services/government' },
+    { name: 'Residential Projects', path: '/services/residential-construction' },
+    { name: 'Commercial / Office Projects', path: '/services/commercial-construction' },
+    { name: 'Retail / Merchandise Projects', path: '/services/retail-construction' },
+    { name: 'Industrial / Warehousing Projects', path: '/services/industrial-construction' },
+    { name: 'Turnkey / Design-Build / EPCM Projects', path: '/services/turnkey-design-build' }
+  ];
+
+
 
   return (
     <>      
@@ -181,6 +188,29 @@ const Navbar = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center" className="w-[1000px] bg-white shadow-lg p-6">
                 <div className="grid grid-cols-4 gap-6">
+                  {/* Industries We Serve */}
+                  <div>
+                    <DropdownMenuLabel asChild className="text-navy font-bold mb-2 cursor-pointer">
+                      <Link 
+                        to="/services/industries" 
+                        className="block hover:text-gold transition-colors duration-200"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Industries We Serve
+                      </Link>
+                    </DropdownMenuLabel>
+                    {industriesWeServe.map((service, index) => (
+                      <DropdownMenuItem key={index} asChild className="p-0">
+                        <Link 
+                          to={service.path} 
+                          className="block px-2 py-1 hover:bg-gray-100 text-sm text-gray-700 hover:text-navy"
+                        >
+                          {service.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </div>
+                  
                   {/* Quantity Takeoff Services */}
                   <div>
                     <DropdownMenuLabel asChild className="text-navy font-bold mb-2 cursor-pointer">
@@ -434,8 +464,25 @@ const Navbar = () => {
               </summary>
               <div className="pl-4 mt-2 space-y-2">
                 <Link 
-                  to="/services/quantity-takeoff"
+                  to="/services/industries"
                   className="font-semibold text-gray-600 text-sm block hover:text-navy"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Industries We Serve
+                </Link>
+                {industriesWeServe.map((service, index) => (
+                  <Link
+                    key={index}
+                    to={service.path}
+                    className="text-navy py-1 block text-sm"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {service.name}
+                  </Link>
+                ))}
+                <Link 
+                  to="/services/quantity-takeoff"
+                  className="font-semibold text-gray-600 text-sm block hover:text-navy mt-3"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Quantity Takeoff

@@ -1,4 +1,3 @@
-
 export interface BlogPost {
   id: string;
   title: string;
@@ -12,6 +11,66 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: "construction-labor-management-2025",
+    title: "Effective Construction Labor Management Strategies for 2025",
+    excerpt: "Learn about the latest trends and best practices in construction labor management, including workforce optimization, safety protocols, and productivity enhancement.",
+    content: `
+      <p>Construction labor management continues to evolve with new technologies and methodologies. Understanding and implementing effective labor management strategies is crucial for project success and profitability.</p>
+      
+      <h2>Workforce Planning and Optimization</h2>
+      <p>Strategic workforce planning is essential for maintaining optimal labor levels throughout project phases. This includes:</p>
+      <ul>
+        <li>Accurate labor needs forecasting</li>
+        <li>Skills-based team allocation</li>
+        <li>Cross-training programs</li>
+        <li>Flexible staffing models</li>
+      </ul>
+      
+      <h2>Safety and Compliance</h2>
+      <p>Modern labor management prioritizes worker safety through:</p>
+      <ul>
+        <li>Advanced safety training programs</li>
+        <li>Real-time safety monitoring systems</li>
+        <li>Compliance tracking software</li>
+        <li>Regular safety audits and updates</li>
+      </ul>
+      
+      <h2>Productivity Enhancement</h2>
+      <p>Improving labor productivity involves multiple strategies:</p>
+      <ul>
+        <li>Implementation of lean construction principles</li>
+        <li>Use of mobile workforce management tools</li>
+        <li>Performance tracking and analytics</li>
+        <li>Incentive-based productivity programs</li>
+      </ul>
+      
+      <h2>Technology Integration</h2>
+      <p>Modern construction sites leverage technology for better labor management:</p>
+      <ul>
+        <li>Digital time tracking and attendance systems</li>
+        <li>Mobile apps for task management</li>
+        <li>Wearable technology for safety monitoring</li>
+        <li>AI-powered workforce scheduling</li>
+      </ul>
+      
+      <h2>Training and Development</h2>
+      <p>Investing in workforce development is crucial:</p>
+      <ul>
+        <li>Virtual reality training programs</li>
+        <li>Apprenticeship initiatives</li>
+        <li>Skill certification programs</li>
+        <li>Leadership development</li>
+      </ul>
+      
+      <p>Effective labor management requires a balanced approach that considers both the human element and technological advancement. By implementing these strategies, construction companies can build a more efficient, safer, and more productive workforce.</p>
+    `,
+    author: "Thomas Anderson",
+    date: "May 25, 2025",
+    image: "/est.avif",
+    category: "Daily News",
+    tags: ["construction labor", "workforce management", "safety", "productivity", "training"]
+  },
   {
     id: "construction-cost-estimation-guide-2025",
     title: "Comprehensive Construction Cost Estimation Guide for 2025",
@@ -36,9 +95,9 @@ export const blogPosts: BlogPost[] = [
       
       <p>By implementing these advanced estimation practices, construction professionals can deliver more reliable budgets and improve project outcomes for all stakeholders.</p>
     `,
-    author: "Maria Rodriguez",
+    author: "Michael Brown",
     date: "May 20, 2025",
-    image: "/lovable-uploads/ec2b02b7-5116-40cb-9910-2339c0af8848.png",
+    image: "/tall.jpg",
     category: "Estimation",
     tags: ["cost estimation", "construction budgeting", "estimation technology", "material costs"]
   },
@@ -68,7 +127,7 @@ export const blogPosts: BlogPost[] = [
     `,
     author: "James Wilson",
     date: "May 19, 2025",
-    image: "/lovable-uploads/2e90f5a9-5034-4883-a9a2-39a683d65891.png",
+    image: "/rall.avif",
     category: "Daily News",
     tags: ["industry news", "market trends", "material prices", "regulations"]
   },
@@ -96,10 +155,10 @@ export const blogPosts: BlogPost[] = [
       
       <p>When evaluating estimation software, consider not just the current capabilities but also the development roadmap, support quality, and training resources available. The right solution should grow with your business and adapt to industry changes.</p>
     `,
-    author: "Sarah Johnson",
+    author: "Sarah Thompson",
     date: "May 15, 2025",
-    image: "/lovable-uploads/9453667f-bbdd-4792-afd1-976b83a3b923.png",
-    category: "Estimation",
+    image: "/nall.avif",
+    category: "Sustainability",
     tags: ["estimation software", "technology", "digital takeoff", "software comparison"]
   },
   {
@@ -126,10 +185,10 @@ export const blogPosts: BlogPost[] = [
       
       <p>When properly accounted for in the estimation process, sustainable construction practices often represent a sound financial investment with returns that extend far beyond simple energy savings to include improved occupant health, productivity, and building value.</p>
     `,
-    author: "Michael Chen",
+    author: "David Chen",
     date: "May 10, 2025",
-    image: "/lovable-uploads/9657eb48-67c1-4acf-8008-15ca7787c7df.png",
-    category: "Sustainability",
+    image: "/cost.avif",
+    category: "Estimation",
     tags: ["green building", "sustainable construction", "cost analysis", "ROI"]
   },
   {
@@ -188,7 +247,7 @@ export const blogPosts: BlogPost[] = [
     `,
     author: "Jennifer Park",
     date: "May 5, 2025",
-    image: "/lovable-uploads/2e90f5a9-5034-4883-a9a2-39a683d65891.png",
+    image: "/ball.avif",
     category: "Daily News",
     tags: ["material costs", "price forecasting", "steel prices", "lumber market", "concrete"]
   },
@@ -248,7 +307,7 @@ export const blogPosts: BlogPost[] = [
     `,
     author: "Rebecca Johnson",
     date: "May 1, 2025",
-    image: "/lovable-uploads/e2429d36-8096-4d29-abfc-95f927251ffc.png",
+    image: "/all.jpg",
     category: "Daily News",
     tags: ["construction law", "building codes", "regulations", "compliance", "legal updates"]
   }
