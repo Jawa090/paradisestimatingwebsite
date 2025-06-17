@@ -908,8 +908,8 @@ export const costEstimationServices: Service[] = [
     relatedServices: ['preliminary-estimates', 'detailed-estimates']
   },
   {
-    id: 'labour-equipment-analysis',
-    title: 'Labour & Equipment Analysis',
+    id: 'dedicated-estimator',
+    title: 'dedicated-estimator',
     icon: <Wrench size={40} />,
     shortDescription: 'Detailed breakdown of labor costs, equipment requirements, and productivity rates.',
     description: 'Our labor and equipment analysis service provides detailed assessment of workforce requirements, equipment needs, and productivity rates to optimize project resource allocation.',

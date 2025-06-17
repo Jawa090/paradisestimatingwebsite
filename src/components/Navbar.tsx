@@ -60,7 +60,7 @@ const Navbar = () => {
     { name: 'Detailed Estimates', path: '/services/detailed-estimates' },
     { name: 'Bid Estimates', path: '/services/bid-estimates' },
     { name: 'Conceptual Estimates', path: '/services/conceptual-estimates' },
-    { name: 'Labour & Equipment Analysis', path: '/services/labour-equipment-analysis' }
+    { name: ' Dedicated Estimator', path: '/services/dedicated-estimator' }
   ];
 
   const specializedLinks = [

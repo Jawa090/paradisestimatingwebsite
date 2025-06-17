@@ -33,9 +33,9 @@ const Footer = () => {
     <footer className="bg-navy text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
         {/* Upper Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Company Info */}
-          <div className="lg:col-span-4">
+          <div>
             <div className="flex items-center mb-4">
               <img 
                 src="/lovable-uploads/1598254f-67ec-42a0-bc7e-f7435098e398.png" 
@@ -71,12 +71,85 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services Categories */}
-          {serviceCategories.map((category, index) => (
-            <div key={index} className="lg:col-span-2">
-              <h3 className="text-lg font-semibold mb-4 text-gold">{category.title}</h3>
+          {/* Quick Links and Contact Us */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-center">
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-xl font-bold mb-6 text-gold tracking-wide">Quick Links</h3>
+              <ul className="space-y-3">
+                {[
+                  { to: '/', label: 'Home' },
+                  { to: '/services', label: 'Services' },
+                  { to: '/service-area', label: 'Service Area' },
+                  { to: '/about', label: 'About' },
+                  { to: '/portfolio', label: 'Portfolio' },
+                  { to: '/blog', label: 'Blog' },
+                  { to: '/contact', label: 'Contact' },
+                ].map(link => (
+                  <li key={link.to}>
+                    <Link
+                      to={link.to}
+                      className="group text-gray-300 hover:text-gold transition-colors flex items-center text-base font-medium"
+                    >
+                      <svg className="w-4 h-4 mr-2 text-gold group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-xl font-bold mb-6 text-gold tracking-wide">Contact Us</h3>
+              <ul className="space-y-5 text-base">
+                <li className="flex items-start">
+                  <svg className="w-6 h-6 mt-1 mr-3 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <address className="not-italic text-gray-300 leading-relaxed">
+                    123 Construction Avenue,<br />
+                    Building City, BC 12345
+                  </address>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-6 h-6 mr-3 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="text-gray-300">(555) 123-4567</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-6 h-6 mr-3 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-gray-300">info@paradiseestimating.com</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-6 h-6 mr-3 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-gray-300">Mon-Fri: 8:00 AM - 6:00 PM</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-gray-700 mb-12"></div>
+
+        {/* Lower Section: All Services by Category */}
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-2xl font-bold mb-8 text-gold text-center tracking-wide">Our Services</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {/* Construction Management */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-gold">Construction Management</h4>
               <ul className="space-y-2">
-                {category.services.map((service) => (
+                {constructionManagementServices.map(service => (
                   <li key={service.id}>
                     <Link 
                       to={`/services/${service.id}`} 
@@ -89,120 +162,120 @@ const Footer = () => {
                     </Link>
                   </li>
                 ))}
-                <li>
-                  <Link 
-                    to="/services" 
-                    className="text-gold hover:text-white transition-colors flex items-center text-sm font-medium"
-                  >
-                    <svg className="w-3 h-3 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                    View All {category.title}
-                  </Link>
-                </li>
               </ul>
             </div>
-          ))}
-        </div>
-
-        {/* Divider */}
-        <div className="border-t border-gray-700 mb-12"></div>
-
-        {/* Lower Section with Quick Links and Contact Us */}
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
-            {/* Quick Links */}
-            <div className="text-center md:text-left">
-              <h3 className="text-lg font-semibold mb-6 text-gold">Quick Links</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link to="/" className="text-gray-300 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start">
-                    <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/services" className="text-gray-300 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start">
-                    <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/service-area" className="text-gray-300 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start">
-                    <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Service Area
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about" className="text-gray-300 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start">
-                    <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/portfolio" className="text-gray-300 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start">
-                    <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Portfolio
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/blog" className="text-gray-300 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start">
-                    <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-gray-300 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start">
-                    <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Contact
-                  </Link>
-                </li>
+            {/* Quantity Takeoff */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-gold">Quantity Takeoff</h4>
+              <ul className="space-y-2">
+                {quantityTakeoffServices.map(service => (
+                  <li key={service.id}>
+                    <Link 
+                      to={`/services/${service.id}`} 
+                      className="text-gray-300 hover:text-gold transition-colors flex items-center text-sm"
+                    >
+                      <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
-
-            {/* Contact Info */}
-            <div className="text-center md:text-left">
-              <h3 className="text-lg font-semibold mb-6 text-gold">Contact Us</h3>
-              <ul className="space-y-4">
-                <li className="flex items-start justify-center md:justify-start">
-                  <svg className="w-5 h-5 mt-1 mr-3 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span className="text-gray-300">123 Construction Avenue,<br />Building City, BC 12345</span>
-                </li>
-                <li className="flex items-center justify-center md:justify-start">
-                  <svg className="w-5 h-5 mr-3 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <span className="text-gray-300">(555) 123-4567</span>
-                </li>
-                <li className="flex items-center justify-center md:justify-start">
-                  <svg className="w-5 h-5 mr-3 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-gray-300">info@paradiseestimating.com</span>
-                </li>
-                <li className="flex items-center justify-center md:justify-start">
-                  <svg className="w-5 h-5 mr-3 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span className="text-gray-300">Mon-Fri: 8:00 AM - 6:00 PM</span>
-                </li>
+            {/* Cost Estimation */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-gold">Cost Estimation</h4>
+              <ul className="space-y-2">
+                {costEstimationServices.map(service => (
+                  <li key={service.id}>
+                    <Link 
+                      to={`/services/${service.id}`} 
+                      className="text-gray-300 hover:text-gold transition-colors flex items-center text-sm"
+                    >
+                      <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Specialized */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-gold">Specialized</h4>
+              <ul className="space-y-2">
+                {specializedServices.map(service => (
+                  <li key={service.id}>
+                    <Link 
+                      to={`/services/${service.id}`} 
+                      className="text-gray-300 hover:text-gold transition-colors flex items-center text-sm"
+                    >
+                      <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Software Based */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-gold">Software Based</h4>
+              <ul className="space-y-2">
+                {softwareBasedServices.map(service => (
+                  <li key={service.id}>
+                    <Link 
+                      to={`/services/${service.id}`} 
+                      className="text-gray-300 hover:text-gold transition-colors flex items-center text-sm"
+                    >
+                      <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Documentation */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-gold">Documentation</h4>
+              <ul className="space-y-2">
+                {documentationServices.map(service => (
+                  <li key={service.id}>
+                    <Link 
+                      to={`/services/${service.id}`} 
+                      className="text-gray-300 hover:text-gold transition-colors flex items-center text-sm"
+                    >
+                      <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Project Support */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-gold">Project Support</h4>
+              <ul className="space-y-2">
+                {projectSupportServices.map(service => (
+                  <li key={service.id}>
+                    <Link 
+                      to={`/services/${service.id}`} 
+                      className="text-gray-300 hover:text-gold transition-colors flex items-center text-sm"
+                    >
+                      <svg className="w-3 h-3 mr-2 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

@@ -30,6 +30,7 @@ import StructuralSteel from "./pages/services/StructuralSteel";
 import SiteworkEarthworks from "./pages/services/SiteworkEarthworks";
 import CostEstimation from "./pages/services/CostEstimation";
 import PreliminaryEstimates from "./pages/services/PreliminaryEstimates";
+import DetailedEstimates from "./pages/services/DetailedEstimates";
 import Industries from "./pages/services/Industries";
 import Government from "./pages/services/government";
 import ResidentialConstruction from "./pages/services/ResidentialConstruction";
@@ -41,6 +42,9 @@ import SpecializedServices from "./pages/services/SpecializedServices";
 import CSITradesEstimating from "./pages/services/CSITradesEstimating";
 import ValueEngineering from "./pages/services/ValueEngineering";
 import RenovationEstimating from "./pages/services/RenovationEstimating";
+import BidEstimates from "./pages/services/BidEstimates";
+import ConceptualEstimates from "./pages/services/ConceptualEstimates";
+import DedicatedEstimator from "./pages/services/DedicatedEstimator";
 
 const queryClient = new QueryClient();
 
@@ -79,6 +83,10 @@ const App = () => (
               <Route path="/services/sitework-earthworks" element={<SiteworkEarthworks />} />
               <Route path="/services/cost-estimation" element={<CostEstimation />} />
               <Route path="/services/preliminary-estimates" element={<PreliminaryEstimates />} />
+              <Route path="/services/detailed-estimates" element={<DetailedEstimates />} />
+              <Route path="/services/bid-estimates" element={<BidEstimates />} />
+              <Route path="/services/conceptual-estimates" element={<ConceptualEstimates />} />
+              <Route path="/services/dedicated-estimator" element={<DedicatedEstimator />} />
               <Route path="/services/:serviceId" element={<ServiceDetail />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />

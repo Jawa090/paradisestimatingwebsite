@@ -15,6 +15,7 @@ const Contact = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -24,14 +25,24 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
+    // Prepare form data
+    const data = new FormData();
+    data.append('name', formData.name);
+    data.append('email', formData.email);
+    data.append('phone', formData.phone);
+    data.append('subject', formData.subject);
+    data.append('message', formData.message);
+    if (selectedFile) {
+      data.append('plan', selectedFile);
+    }
+
     // Simulate form submission
     setTimeout(() => {
       toast({
         title: "Message Sent!",
         description: "Thank you for contacting us. We'll get back to you as soon as possible.",
       });
-      
       setFormData({
         name: '',
         email: '',
@@ -39,9 +50,17 @@ const Contact = () => {
         subject: '',
         message: '',
       });
-      
+      setSelectedFile(null);
       setIsSubmitting(false);
     }, 1500);
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+    } else {
+      setSelectedFile(null);
+    }
   };
 
   return (
@@ -160,14 +179,37 @@ const Contact = () => {
                     required
                   ></textarea>
                 </div>
-                
-                <Button 
-                  className="bg-gold hover:bg-navy text-white px-8 py-3 text-lg"
-                  disabled={isSubmitting}
-                  type="submit"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </Button>
+                {/* File Upload Input */}
+                <div>
+                  <label htmlFor="plan-upload" className="block text-gray-700 font-medium mb-2">Upload Your Plan</label>
+                  <label htmlFor="plan-upload" className="flex flex-col items-center px-4 py-6 bg-white text-navy rounded-lg shadow-md tracking-wide uppercase border border-gold cursor-pointer hover:bg-gold hover:text-white transition-colors">
+                    <svg className="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5-5m0 0l5 5m-5-5v12" />
+                    </svg>
+                    <span className="text-base leading-normal">Click to upload file (PDF, JPG, PNG, DOCX, etc.)</span>
+                    <input
+                      id="plan-upload"
+                      type="file"
+                      className="hidden"
+                      onChange={handleFileChange}
+                      accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx"
+                    />
+                  </label>
+                  {selectedFile && (
+                    <div className="text-navy mt-2">
+                      <span className="font-medium">Selected file:</span> {selectedFile.name}
+                    </div>
+                  )}
+                </div>
+                <div className="flex justify-center">
+                  <Button 
+                    className="bg-gold hover:bg-navy text-white px-8 py-3 text-lg"
+                    disabled={isSubmitting}
+                    type="submit"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </Button>
+                </div>
               </form>
             </div>
             

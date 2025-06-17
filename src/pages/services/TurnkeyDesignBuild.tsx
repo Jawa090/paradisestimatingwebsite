@@ -4,7 +4,49 @@ import { fadeIn } from "@/lib/animations";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Chatbot from "@/components/Chatbot";
-import { Workflow, CheckCircle } from "lucide-react";
+import {
+  Workflow,
+  CheckCircle,
+  LayoutTemplate,
+  DollarSign,
+  Layers,
+  Ruler,
+  Package,
+  Wallet
+} from "lucide-react";
+
+const services = [
+  {
+    title: "All-Stage Estimating",
+    description: "We deliver cost estimates at every project stage, from conceptual design to final handover.",
+    icon: LayoutTemplate,
+  },
+  {
+    title: "Lump Sum Pricing",
+    description: "Lump sum pricing with built-in risk provisions ensures budget confidence.",
+    icon: DollarSign,
+  },
+  {
+    title: "Cost Breakdown Structure",
+    description: "Clear, organized cost allocations with a detailed CBS.",
+    icon: Layers,
+  },
+  {
+    title: "Design & Cost Review",
+    description: "Ongoing collaboration with design teams for cost-effective solutions.",
+    icon: Ruler,
+  },
+  {
+    title: "Package Budgets",
+    description: "Scope splits and package budgets to manage subcontractor pricing.",
+    icon: Package,
+  },
+  {
+    title: "Cash Flow Management",
+    description: "Milestone-based payment tracking for smooth cash flow.",
+    icon: Wallet,
+  },
+];
 
 const TurnkeyDesignBuild = () => {
   return (
@@ -105,47 +147,26 @@ const TurnkeyDesignBuild = () => {
               </div>
             </div>
 
-            {/* Services Grid */}
+            {/* Services Grid with Icons */}
             <motion.div
               variants={fadeIn}
               initial="hidden"
               animate="visible"
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
             >
-              {[
-                {
-                  title: "All-Stage Estimating",
-                  description: "We deliver cost estimates at every project stage, from conceptual design to the final handover of the completed project."
-                },
-                {
-                  title: "Lump Sum Pricing",
-                  description: "We offer lump sum pricing estimates with built-in risk provisions, ensuring that all potential risks are accounted for."
-                },
-                {
-                  title: "Cost Breakdown Structure",
-                  description: "We provide a detailed Cost Breakdown Structure (CBS) to give you a clear, organized view of your project's cost allocations."
-                },
-                {
-                  title: "Design & Cost Review",
-                  description: "Our team works closely with your design team to ensure cost optimization throughout the design process."
-                },
-                {
-                  title: "Package Budgets",
-                  description: "We create detailed scope splits for subcontractors and establish package budgets, enabling precise project cost management."
-                },
-                {
-                  title: "Cash Flow Management",
-                  description: "We track milestones and manage cash flow, ensuring that payments are aligned with the completion of project phases."
-                }
-              ].map((service, index) => (
-                <div 
-                  key={index} 
-                  className="bg-blue-50 rounded-xl p-8 shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  <h3 className="text-xl font-semibold mb-4 text-blue-800">{service.title}</h3>
-                  <p className="text-gray-700 text-lg">{service.description}</p>
-                </div>
-              ))}
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <div
+                    key={index}
+                    className="bg-blue-50 rounded-xl p-8 shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-center"
+                  >
+                    <Icon className="h-10 w-10 text-blue-600 mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold mb-3 text-blue-800">{service.title}</h3>
+                    <p className="text-gray-700 text-lg">{service.description}</p>
+                  </div>
+                );
+              })}
             </motion.div>
 
             {/* CTA Section */}
@@ -169,9 +190,10 @@ const TurnkeyDesignBuild = () => {
           </motion.div>
         </section>
       </div>
+
       <Chatbot />
     </>
   );
 };
 
-export default TurnkeyDesignBuild; 
+export default TurnkeyDesignBuild;
