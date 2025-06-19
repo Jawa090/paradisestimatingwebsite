@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Star } from 'lucide-react';
@@ -8,29 +7,33 @@ const Testimonials = () => {
   
   const testimonials = [
     {
-      id: 1,
-      name: "John Smith",
-      position: "Project Manager, ABC Construction",
-      image: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=120&h=120&fit=crop&auto=format",
-      rating: 5,
-      content: "Paradise Estimating has been our go-to estimating partner for over 3 years now. Their attention to detail and accuracy are unmatched in the industry. We've seen our bid success rate increase by over 35% since we started working with them."
+      name: "Edward Flack",
+      text: "In my experience working with Paradise Estimating, they have displayed tremendous skill in the area of cost engineering. I will always count on their professionalism."
     },
     {
-      id: 2,
-      name: "Sarah Johnson",
-      position: "Owner, Johnson Homes",
-      image: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=120&h=120&fit=crop&auto=format",
-      rating: 5,
-      content: "As a residential builder, accurate estimates are crucial to our business. Paradise Estimating consistently delivers precise takeoffs that have helped us win more bids while maintaining healthy profit margins."
+      name: "John O'Brien",
+      text: "Good team work, they provide my project estimate in detail as per my requirement as per bid sheet. An amazing experience!"
     },
     {
-      id: 3,
-      name: "Michael Williams",
-      position: "Director, Williams Construction Group",
-      image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=120&h=120&fit=crop&auto=format",
-      rating: 4,
-      content: "We've worked with several estimating companies in the past, but Paradise Estimating stands out for their responsiveness and expertise. They've become an extension of our team, helping us scale our operations efficiently."
+      name: "Chamorro Camilo",
+      text: "By far the best Material takeoff company I've worked with, I'm wondering why I never contacted these guys sooner!"
     },
+    {
+      name: "Barbaro Povce",
+      text: "Good turnaround time, economical charges, providing 99% accuracy with color markups with final estimate, An astonishing experience!"
+    },
+    {
+      name: "Sebastian",
+      text: "Your service was very efficient, fast and well explained, Thank you very much"
+    },
+    {
+      name: "Rohan Warmington",
+      text: "Very good turnaround time, Very detailed oriented. Works with me to ensure our estimates are just the way we need them. very competitive prices,we found the estimate to be spot-on and professional"
+    },
+    {
+      name: "Stephen Sonson",
+      text: "The company paradise estimating is very professional, as a general contractor I rely on them to ensure plan takeoffs are of high standard. i would highly recommend them to any business"
+    }
   ];
 
   const nextTestimonial = () => {
@@ -55,25 +58,8 @@ const Testimonials = () => {
           <div className="min-h-[320px] bg-white rounded-xl shadow-lg p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="md:w-1/4 flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
-                  <img 
-                    src={testimonials[currentIndex].image}
-                    alt={testimonials[currentIndex].name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="font-bold text-navy text-lg text-center">{testimonials[currentIndex].name}</h3>
-                <p className="text-gray-500 text-sm text-center">{testimonials[currentIndex].position}</p>
-                
-                <div className="flex items-center mt-2">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      size={16}
-                      className={i < testimonials[currentIndex].rating ? "text-gold fill-gold" : "text-gray-300"}
-                    />
-                  ))}
-                </div>
+                <h3 className="font-bold text-navy text-lg text-center mb-2">{testimonials[currentIndex].name}</h3>
+                <p className="text-gray-500 text-sm text-center">{testimonials[currentIndex].text}</p>
               </div>
               
               <div className="md:w-3/4">
@@ -84,7 +70,7 @@ const Testimonials = () => {
 
                   <blockquote className="relative z-10">
                     <p className="text-gray-700 text-lg leading-relaxed">
-                      {testimonials[currentIndex].content}
+                      {testimonials[currentIndex].text}
                     </p>
                   </blockquote>
                 </div>

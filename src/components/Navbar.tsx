@@ -186,7 +186,10 @@ const Navbar = () => {
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="center" className="w-[1000px] bg-white shadow-lg p-6">
+              <DropdownMenuContent
+                align="center"
+                className="w-[1000px] bg-white shadow-lg p-6 max-h-[80vh] overflow-y-auto"
+              >
                 <div className="grid grid-cols-4 gap-6">
                   {/* Industries We Serve */}
                   <div>
