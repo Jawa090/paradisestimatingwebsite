@@ -266,7 +266,7 @@ const Contact = () => {
                     </svg>
                     <div>
                       <h4 className="font-semibold text-gold">Phone</h4>
-                      <p className="text-gray-300">(555) 123-4567</p>
+                      <p className="text-gray-300">(718)719 6171</p>
                     </div>
                   </div>
                   
@@ -309,8 +309,7 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold text-gold">Business Hours</h4>
                       <p className="text-gray-300">
-                        Monday - Friday: 8:00 AM - 6:00 PM<br />
-                        Saturday: 9:00 AM - 2:00 PM<br />
+                        Monday - Friday: 9:00 AM - 6:00 PM<br />
                         Sunday: Closed
                       </p>
                     </div>
