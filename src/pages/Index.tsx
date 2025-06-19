@@ -130,7 +130,6 @@ const Index = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8">
               Stop Guessing, Start Winning with
               <br />
-              <br />
               <span className="text-gold">Paradise Construction Estimating Services</span>
               <span className="animate-ping">|</span>
             </h1>

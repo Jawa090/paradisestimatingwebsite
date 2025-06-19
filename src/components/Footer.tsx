@@ -111,8 +111,8 @@ const Footer = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <address className="not-italic text-gray-300 leading-relaxed">
-                    123 Construction Avenue,<br />
-                    Building City, BC 12345
+                  896 Bay Ridge Avenue,<br />
+                  Brooklyn, NY 11220
                   </address>
                 </li>
                 <li className="flex items-center">
@@ -283,7 +283,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Paradise Estimating. All rights reserved.</p>
+          <p>&copy; 2025 Paradise Estimating, part of <Link to="/contractorlist" className="text-gold font-bold text-base md:text-lg hover:underline hover:text-white transition-colors" style={{ fontSize: '1.15em' }}>Contractorslist.com</Link> group. All rights reserved.</p>
         </div>
       </div>
     </footer>

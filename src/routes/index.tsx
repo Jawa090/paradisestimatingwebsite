@@ -4,8 +4,6 @@ import Index from '@/pages/Index';
 import Services from '@/pages/Services';
 import QuantityTakeoff from '@/pages/services/QuantityTakeoff';
 import CostEstimation from '@/pages/services/CostEstimation';
-import ConstructionManagement from '@/pages/services/ConstructionManagement';
-import SoftwareServices from '@/pages/services/SoftwareServices';
 import DrywallInsulation from '@/pages/services/DrywallInsulation';
 import RoofingWaterproofing from '@/pages/services/RoofingWaterproofing';
 import FlooringTakeoffs from '@/pages/services/FlooringTakeoffs';
@@ -15,6 +13,7 @@ import StructuralSteel from '@/pages/services/StructuralSteel';
 import SiteworkEarthworks from '@/pages/services/SiteworkEarthworks';
 import PreliminaryEstimates from '@/pages/services/PreliminaryEstimates';
 import CommercialConstruction from '@/pages/services/CommercialConstruction';
+import ContractorsList from '@/pages/ContractorsList';
 
 const AppRoutes = () => {
   return (
@@ -25,8 +24,6 @@ const AppRoutes = () => {
         <Route path="/services/quantity-takeoff" element={<QuantityTakeoff />} />
         <Route path="/services/cost-estimation" element={<CostEstimation />} />
         <Route path="/services/preliminary-estimates" element={<PreliminaryEstimates />} />
-        <Route path="/services/construction-management" element={<ConstructionManagement />} />
-        <Route path="/services/software-services" element={<SoftwareServices />} />
         <Route path="/services/drywall-insulation" element={<DrywallInsulation />} />
         <Route path="/services/roofing-waterproofing" element={<RoofingWaterproofing />} />
         <Route path="/services/flooring-takeoffs" element={<FlooringTakeoffs />} />
@@ -36,6 +33,7 @@ const AppRoutes = () => {
         <Route path="/services/sitework-earthworks" element={<SiteworkEarthworks />} />
         <Route path="/services/commercial-construction" element={<CommercialConstruction />} />
       </Route>
+      <Route path="/contractorslist" element={<ContractorsList />} />
     </Routes>
   );
 };

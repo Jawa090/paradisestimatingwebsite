@@ -45,6 +45,7 @@ import RenovationEstimating from "./pages/services/RenovationEstimating";
 import BidEstimates from "./pages/services/BidEstimates";
 import ConceptualEstimates from "./pages/services/ConceptualEstimates";
 import DedicatedEstimator from "./pages/services/DedicatedEstimator";
+import ContractorList from "./pages/ContractorList";
 
 const queryClient = new QueryClient();
 
@@ -98,6 +99,7 @@ const App = () => (
               <Route path="/service-areas" element={<ServiceAreas />} />
               <Route path="/service-areas/:stateId" element={<ServiceDetail />} />
             </Route>
+            <Route path="/contractorlist" element={<ContractorList />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

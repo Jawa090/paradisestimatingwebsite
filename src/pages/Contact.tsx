@@ -242,9 +242,9 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold text-gold">Our Office</h4>
                       <p className="text-gray-300">
-                        123 Construction Avenue<br />
-                        Building City, BC 12345<br />
-                        United States
+                      896 Bay Ridge Avenue, <br />
+                      Brooklyn, NY 11220<br />
+                       
                       </p>
                     </div>
                   </div>
