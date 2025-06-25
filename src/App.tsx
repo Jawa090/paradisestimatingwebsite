@@ -46,6 +46,7 @@ import BidEstimates from "./pages/services/BidEstimates";
 import ConceptualEstimates from "./pages/services/ConceptualEstimates";
 import DedicatedEstimator from "./pages/services/DedicatedEstimator";
 import ContractorList from "./pages/ContractorList";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Index />} />

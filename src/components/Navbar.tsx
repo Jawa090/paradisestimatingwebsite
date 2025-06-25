@@ -400,12 +400,12 @@ const Navbar = () => {
             </Link>
             
             <Link
-              to="/blog"
+              to="/service-areas"
               className={`${
                 isScrolled ? 'text-navy' : 'text-white'
-              } hover-underline-animation ${isActive('/blog') ? 'font-semibold' : ''}`}
+              } hover-underline-animation ${isActive('/service-areas') ? 'font-semibold' : ''}`}
             >
-              Blog
+              Service Areas
             </Link>
             
             <Link
@@ -416,14 +416,16 @@ const Navbar = () => {
             >
               About Us
             </Link>
+            
             <Link
-              to="/service-areas"
+              to="/blog"
               className={`${
                 isScrolled ? 'text-navy' : 'text-white'
-              } hover-underline-animation ${isActive('/service-areas') ? 'font-semibold' : ''}`}
+              } hover-underline-animation ${isActive('/blog') ? 'font-semibold' : ''}`}
             >
-              Service Areas
+              Blog
             </Link>
+            
             <Link
               to="/contact"
               className={`${
@@ -619,11 +621,11 @@ const Navbar = () => {
               Portfolio
             </Link>
             <Link
-              to="/blog"
-              className={`text-navy py-2 ${isActive('/blog') ? 'font-semibold' : ''}`}
+              to="/service-areas"
+              className={`text-navy py-2 ${isActive('/service-areas') ? 'font-semibold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
-              Blog
+              Service Areas
             </Link>
             <Link
               to="/about"
@@ -633,11 +635,11 @@ const Navbar = () => {
               About Us
             </Link>
             <Link
-              to="/service-areas"
-              className={`text-navy py-2 ${isActive('/service-areas') ? 'font-semibold' : ''}`}
+              to="/blog"
+              className={`text-navy py-2 ${isActive('/blog') ? 'font-semibold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
-              Service Areas
+              Blog
             </Link>
             <Link
               to="/contact"
