@@ -10,10 +10,10 @@ const IndustrialConstruction = () => {
   return (
     <>
       <Helmet>
-        <title>Industrial Construction Estimating Services | Paradise Estimating</title>
+        <title>Industrial and Warehouse Construction Estimating Services</title>
         <meta
           name="description"
-          content="Expert estimating services for industrial and warehousing construction projects. Comprehensive solutions for manufacturing facilities, warehouses, and industrial complexes."
+          content="Comprehensive cost estimating for industrial facilities, warehouses, and storage units."
         />
       </Helmet>
 

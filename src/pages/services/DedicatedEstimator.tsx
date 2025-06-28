@@ -205,10 +205,10 @@ const DedicatedEstimator = () => {
   return (
     <>
       <Helmet>
-        <title>Dedicated Construction Estimator Services | Paradise Estimating</title>
+        <title>Hire a Dedicated Construction Estimator for Your Projects</title>
         <meta
           name="description"
-          content="Get a dedicated construction estimator assigned exclusively to your project. Our professional estimators provide accurate, timely cost estimates to help you win more projects."
+          content="Get a full-time professional estimator to support your construction business with accuracy and speed."
         />
       </Helmet>
 

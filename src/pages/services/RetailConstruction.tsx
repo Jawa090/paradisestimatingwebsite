@@ -19,10 +19,10 @@ const RetailConstruction = () => {
   return (
     <>
       <Helmet>
-        <title>Retail Construction Estimating Services | Paradise Estimating</title>
+        <title>Retail Construction Estimating Services for Stores and Showrooms</title>
         <meta
           name="description"
-          content="Expert estimating services for retail construction projects. From shopping centers to standalone stores, we provide accurate cost estimates for all retail construction needs."
+          content="Get precise cost estimates for retail stores, merchandise outlets, and commercial fit-outs."
         />
       </Helmet>
 

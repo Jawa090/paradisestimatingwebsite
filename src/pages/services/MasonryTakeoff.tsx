@@ -28,6 +28,7 @@ import {
   Hospital,
   Check
 } from 'lucide-react';
+import { Helmet } from "react-helmet";
 
 const MasonryTakeoff = () => {
   const fadeIn = {
@@ -53,6 +54,13 @@ const MasonryTakeoff = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
+      <Helmet>
+        <title>Masonry Takeoff Services for Brick and Block Construction</title>
+        <meta
+          name="description"
+          content="Expert masonry quantity takeoff for blocks, bricks, and mortar. Ensure accurate bids and material planning."
+        />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-24 px-4 bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden">
         <div className="absolute inset-0 opacity-10 [background-image:linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>

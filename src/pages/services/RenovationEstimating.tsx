@@ -99,10 +99,10 @@ const RenovationEstimating = () => {
   return (
     <>
       <Helmet>
-        <title>Renovation Cost Estimating Services | Paradise Estimating</title>
+        <title>Renovation Estimating Services for Residential and Commercial Projects</title>
         <meta
           name="description"
-          content="Expert renovation cost estimating services for residential and commercial projects. Get accurate remodeling estimates in 24 hours."
+          content="Cost estimating for remodeling, renovation, and retrofit construction projects."
         />
       </Helmet>
 

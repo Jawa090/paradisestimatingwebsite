@@ -4,6 +4,7 @@ import { useToast } from '@/components/ui/use-toast';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -65,6 +66,13 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Contact Paradise Estimating for Expert Cost Estimation and Takeoff Services</title>
+        <meta
+          name="description"
+          content="Get in touch with us for a quote, consultation, or more information on our construction estimating services. Fast response and professional support guaranteed."
+        />
+      </Helmet>
       <Navbar />
       
       {/* Hero Section */}

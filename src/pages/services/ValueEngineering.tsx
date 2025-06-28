@@ -124,10 +124,10 @@ const ValueEngineering = () => {
   return (
     <>
       <Helmet>
-        <title>Value Engineering Services | Paradise Estimating</title>
+        <title>Value Engineering Services for Cost-Effective Construction Solutions</title>
         <meta
           name="description"
-          content="Strategic cost optimization without compromising design or performance. Expert value engineering services for construction projects."
+          content="Maximize value and minimize cost with professional value engineering services."
         />
       </Helmet>
 

@@ -71,8 +71,11 @@ const ConceptualEstimates = () => {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-navy to-white">
       <Navbar />
       <Helmet>
-        <title>Conceptual Estimating Services | Paradise Estimating</title>
-        <meta name="description" content="Professional conceptual estimating services for construction projects. Get accurate early-stage cost estimates to guide your project planning." />
+        <title>Conceptual Construction Estimating for Early-Stage Designs</title>
+        <meta
+          name="description"
+          content="High-level cost estimates based on conceptual drawings and project scope."
+        />
       </Helmet>
 
       {/* Hero Section */}

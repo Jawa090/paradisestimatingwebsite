@@ -125,10 +125,10 @@ const CSITradesEstimating = () => {
   return (
     <>
       <Helmet>
-        <title>CSI Trades Estimating Services | Paradise Estimating</title>
+        <title>CSI Division Estimating Services for Trade-Specific Projects</title>
         <meta
           name="description"
-          content="Professional construction cost estimation for every trade. Comprehensive CSI trades estimating services covering all aspects of construction."
+          content="Construction estimating by CSI trades/divisions including Div 1–49."
         />
       </Helmet>
 

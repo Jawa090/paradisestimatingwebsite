@@ -26,6 +26,7 @@ import {
   DollarSign,
   Download
 } from 'lucide-react';
+import { Helmet } from "react-helmet";
 
 // Animation variants
 const fadeIn = {
@@ -51,6 +52,13 @@ const fadeInItem = {
 const ConcreteTakeoff = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <Helmet>
+        <title>Concrete Takeoff Services for Accurate Material Quantities</title>
+        <meta
+          name="description"
+          content="Get detailed concrete quantity takeoff for slabs, footings, walls, and foundations. Fast, precise, and reliable."
+        />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-24 px-4 bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden">
         <div className="absolute inset-0 opacity-10 [background-image:linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>

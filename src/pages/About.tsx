@@ -4,8 +4,17 @@ import Chatbot from '@/components/Chatbot';
 import { Link } from 'react-router-dom';
 import StatsShowcase from '@/components/StatsShowcase';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { Helmet } from "react-helmet";
+
 const About = () => {
   return <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>About Paradise Estimating – Your Trusted Construction Estimating Partner</title>
+        <meta
+          name="description"
+          content="Learn more about Paradise Estimating, our mission, team, and why contractors choose us for accurate and efficient estimation services."
+        />
+      </Helmet>
       <Navbar />
       
       {/* Hero Section */}

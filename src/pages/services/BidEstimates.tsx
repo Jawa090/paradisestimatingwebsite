@@ -12,8 +12,11 @@ const BidEstimates = () => {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-navy to-white">
       <Navbar />
       <Helmet>
-        <title>Bid Estimating Services | Paradise Estimating</title>
-        <meta name="description" content="Accurate, competitive construction bid estimates for contractors, developers, and builders. Win more projects with Paradise Estimating's precision bid estimating services." />
+        <title>Bid Estimating Services for Winning Construction Projects</title>
+        <meta
+          name="description"
+          content="Competitive construction bid estimates to help contractors win more projects and stay within budget."
+        />
       </Helmet>
 
       {/* Hero Section */}

@@ -3,6 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { ArrowRight, Upload, FileText, Building2, Home, Layers, Package, Check, Clock, Zap, Ruler, FileInput, FileOutput, Thermometer, Volume2, FireExtinguisher, Droplets } from 'lucide-react';
+import { Helmet } from "react-helmet";
 
 const DrywallInsulation = () => {
   const features = [
@@ -62,6 +63,13 @@ const DrywallInsulation = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50/50">
+      <Helmet>
+        <title>Drywall and Insulation Takeoff Services for Commercial and Residential Projects</title>
+        <meta
+          name="description"
+          content="Fast and accurate drywall and insulation takeoff to streamline your material ordering and budgeting."
+        />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-24 px-4 bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden">
         <div className="absolute inset-0 opacity-10 [background-image:linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>

@@ -15,6 +15,7 @@ import {
   industriesWeServe
 } from '@/data/newServices';
 import { Calculator, FileText, Settings, Monitor, ClipboardList, Users, Building2, Factory } from 'lucide-react';
+import { Helmet } from "react-helmet";
 
 const Services = () => {
   const animatedElementsRef = useRef<HTMLDivElement>(null);
@@ -125,6 +126,13 @@ const Services = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Full-Spectrum Estimating Services Including Takeoffs, Bidding, and Project Support</title>
+        <meta
+          name="description"
+          content="Explore our complete range of construction estimating services including quantity takeoff, cost estimating, project management, documentation, and software-based solutions."
+        />
+      </Helmet>
       <Navbar />
       
       {/* Hero Section */}

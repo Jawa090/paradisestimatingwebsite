@@ -47,6 +47,7 @@ import ConceptualEstimates from "./pages/services/ConceptualEstimates";
 import DedicatedEstimator from "./pages/services/DedicatedEstimator";
 import ContractorList from "./pages/ContractorList";
 import ScrollToTop from "@/components/ScrollToTop";
+import GetAQuote from '@/pages/GetAQuote';
 
 const queryClient = new QueryClient();
 
@@ -100,6 +101,7 @@ const App = () => (
               <Route path="/blog/:postId" element={<BlogPost />} />
               <Route path="/service-areas" element={<ServiceAreas />} />
               <Route path="/service-areas/:stateId" element={<ServiceDetail />} />
+              <Route path="/get-a-quote" element={<GetAQuote />} />
             </Route>
             <Route path="/contractorlist" element={<ContractorList />} />
             <Route path="*" element={<NotFound />} />

@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
 import { Button } from '@/components/ui/button';
+import { Helmet } from "react-helmet";
 
 const Government = () => {
   const services = [
@@ -91,6 +92,13 @@ const Government = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Construction Estimating Services for Public and Government Projects</title>
+        <meta
+          name="description"
+          content="Get accurate cost estimates for public and government construction projects. Trusted by contractors, architects, and agencies."
+        />
+      </Helmet>
       <Navbar />
       
       {/* Hero Section */}

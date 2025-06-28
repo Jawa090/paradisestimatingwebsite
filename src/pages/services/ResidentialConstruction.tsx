@@ -101,8 +101,11 @@ const ResidentialConstruction = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Residential Construction Estimating Services | Paradise Estimating</title>
-        <meta name="description" content="Expert residential construction estimating services for detached homes, apartments, townhouses, and housing estates. 98% accuracy guarantee and 24-hour turnaround." />
+        <title>Residential Construction Estimating Services for Homes and Apartments</title>
+        <meta
+          name="description"
+          content="Professional residential cost estimating services for builders and homeowners. Accurate quotes for single-family, multi-family, and custom homes."
+        />
       </Helmet>
 
       <Navbar />

@@ -172,10 +172,10 @@ const DetailedEstimates = () => {
   return (
     <>
       <Helmet>
-        <title>Detailed Construction Estimate Services | Paradise Estimating</title>
+        <title>Detailed Construction Estimating Services for Accurate Bids</title>
         <meta
           name="description"
-          content="Get accurate, itemized construction estimates that drive project success. Our detailed estimates provide complete cost transparency across every project phase."
+          content="Comprehensive cost breakdowns with detailed estimating for accurate construction proposals."
         />
       </Helmet>
 

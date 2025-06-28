@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -14,6 +13,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
 import { Eye, Home, LayoutGrid, LayoutList } from 'lucide-react';
+import { Helmet } from "react-helmet";
 
 // Portfolio project data - same as in Portfolio.tsx component
 const portfolioProjects = [
@@ -185,6 +185,13 @@ const PortfolioPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Our Estimating Project Portfolio Showcasing Residential, Commercial, and Government Jobs</title>
+        <meta
+          name="description"
+          content="View our portfolio of successfully completed cost estimation and takeoff projects across various industries and construction types."
+        />
+      </Helmet>
       <Navbar />
       
       {/* Hero Section */}

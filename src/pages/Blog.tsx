@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { blogPosts } from '@/data/blogPosts';
@@ -9,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Search, BookOpen, Tag, Filter, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import { Helmet } from "react-helmet";
 
 const Blog: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -50,6 +50,13 @@ const Blog: React.FC = () => {
   
   return (
     <div className="flex flex-col min-h-screen">
+      <Helmet>
+        <title>Construction Estimating Blog with Industry Insights, Tips, and Best Practices</title>
+        <meta
+          name="description"
+          content="Stay updated with the latest trends, expert advice, and how-tos in construction estimating, quantity takeoff, and project management."
+        />
+      </Helmet>
       <Navbar />
       
       {/* Hero Section */}

@@ -10,8 +10,11 @@ const CommercialConstruction = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Commercial Construction Estimating Services | Paradise Estimating</title>
-        <meta name="description" content="Expert commercial construction estimating services for retail, healthcare, educational, office, industrial, and hospitality projects. Get accurate estimates from certified professionals." />
+        <title>Commercial Construction Estimating for Office and Retail Projects</title>
+        <meta
+          name="description"
+          content="Reliable commercial estimating services for office buildings and retail developments. Improve budgeting and bidding success."
+        />
       </Helmet>
 
       <Navbar />

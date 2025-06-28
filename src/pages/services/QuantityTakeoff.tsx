@@ -24,10 +24,18 @@ import {
   DollarSign,
   ClipboardCheck
 } from 'lucide-react';
+import { Helmet } from "react-helmet";
 
 const QuantityTakeoff = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <Helmet>
+        <title>Quantity Takeoff Services</title>
+        <meta
+          name="description"
+          content="Professional quantity takeoff services for all construction trades and project types. Accurate and detailed material quantification."
+        />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-28 px-4 bg-gradient-to-br from-primary/5 via-white to-primary/5 overflow-hidden">
         <div className="absolute inset-0 opacity-10">

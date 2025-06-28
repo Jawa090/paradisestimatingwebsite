@@ -14,6 +14,7 @@ import SiteworkEarthworks from '@/pages/services/SiteworkEarthworks';
 import PreliminaryEstimates from '@/pages/services/PreliminaryEstimates';
 import CommercialConstruction from '@/pages/services/CommercialConstruction';
 import ContractorsList from '@/pages/ContractorsList';
+import GetAQuote from '@/pages/GetAQuote';
 
 const AppRoutes = () => {
   return (
@@ -32,6 +33,7 @@ const AppRoutes = () => {
         <Route path="/services/structural-steel" element={<StructuralSteel />} />
         <Route path="/services/sitework-earthworks" element={<SiteworkEarthworks />} />
         <Route path="/services/commercial-construction" element={<CommercialConstruction />} />
+        <Route path="/get-a-quote" element={<GetAQuote />} />
       </Route>
       <Route path="/contractorslist" element={<ContractorsList />} />
     </Routes>

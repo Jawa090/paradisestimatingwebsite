@@ -156,10 +156,10 @@ const PreliminaryEstimates: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Accurate Preliminary Budget Estimates | Paradise Estimating</title>
-        <meta 
-          name="description" 
-          content="Fast, reliable preliminary estimates for 30%, 60%, or 90% drawings. Location-adjusted pricing with certified estimators. Get your estimate within 24 hours." 
+        <title>Preliminary and Budget Estimating Services for Project Planning</title>
+        <meta
+          name="description"
+          content="Early-stage construction cost estimates for budgeting, feasibility studies, and planning approvals."
         />
       </Helmet>
 

@@ -52,10 +52,10 @@ const TurnkeyDesignBuild = () => {
   return (
     <>
       <Helmet>
-        <title>Turnkey & Design-Build Estimating Services | Paradise Estimating</title>
+        <title>Turnkey, Design-Build, and EPCM Construction Estimating Services</title>
         <meta
           name="description"
-          content="Expert estimating services for turnkey, design-build, and EPCM projects. Full lifecycle support from concept to completion with comprehensive cost management."
+          content="End-to-end cost estimation for turnkey and EPCM projects. Ensure budget control and project efficiency."
         />
       </Helmet>
 

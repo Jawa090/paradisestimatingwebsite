@@ -43,10 +43,10 @@ const CarpentryMillwork = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Helmet>
-        <title>Carpentry, Millwork & Cabinetry Takeoffs | Paradise Estimating</title>
+        <title>Carpentry and Millwork Takeoff Services for Interior and Exterior Projects</title>
         <meta
           name="description"
-          content="Expert carpentry, millwork & cabinetry takeoff services for contractors and builders. Fast, reliable estimates for residential and commercial projects."
+          content="Precise quantity takeoffs for framing, woodwork, trims, and cabinetry."
         />
       </Helmet>
 

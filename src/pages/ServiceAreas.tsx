@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Home } from 'lucide-react';
+import { Helmet } from "react-helmet";
 
 const serviceAreas = [
   {
@@ -61,6 +62,13 @@ const serviceAreas = [
 const ServiceAreas = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>Construction Estimating Services Available Across the U.S.</title>
+        <meta
+          name="description"
+          content="Discover the U.S. regions we serve with professional construction estimating services. Paradise Estimating provides accurate takeoff and cost estimation across all 50 states including New York, California, Texas, and more."
+        />
+      </Helmet>
       {/* Hero Section */}
       <div className="relative bg-navy text-white py-24">
         <div className="container mx-auto px-4">

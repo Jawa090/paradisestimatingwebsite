@@ -435,7 +435,7 @@ const Navbar = () => {
               Contact
             </Link>
             <Button className="bg-gold hover:bg-white hover:text-gold text-white transition-colors duration-300">
-              <Link to="/estimate-download">Get a Quote</Link>
+              <Link to="/get-a-quote">Get a Quote</Link>
             </Button>
           </div>
 
@@ -649,7 +649,7 @@ const Navbar = () => {
               Contact
             </Link>
             <Button className="bg-gold hover:bg-navy text-white w-full">
-              <Link to="/estimate-download">Get a Quote</Link>
+              <Link to="/get-a-quote">Get a Quote</Link>
             </Button>
           </div>
         )}

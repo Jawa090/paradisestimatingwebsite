@@ -20,6 +20,7 @@ import StatsShowcase from '@/components/StatsShowcase';
 import ClientsCarousel from '@/components/ClientsCarousel';
 import Testimonials from '@/components/Testimonials';
 import Portfolio from '@/components/Portfolio';
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const animatedElementsRef = useRef<HTMLDivElement>(null);
@@ -45,6 +46,13 @@ const Home = () => {
 
   return (
     <div ref={animatedElementsRef} className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Expert Construction Estimating Services for All Project Types</title>
+        <meta
+          name="description"
+          content="Paradise Estimating offers precise construction takeoff and cost estimating services for residential, commercial, and government projects. Trusted by contractors across the U.S."
+        />
+      </Helmet>
       <Navbar />
       
       {/* Hero Section */}
