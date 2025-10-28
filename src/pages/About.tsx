@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
+import ContactForm from '@/components/ContactForm';
 import { Link } from 'react-router-dom';
 import StatsShowcase from '@/components/StatsShowcase';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
@@ -153,8 +154,8 @@ const About = () => {
         </div>
       </section>
       
-      {/* Map Section */}
-      
+      {/* Contact Form Section */}
+      <ContactForm />
       
       {/* CTA Section */}
       <section className="py-16 bg-navy">

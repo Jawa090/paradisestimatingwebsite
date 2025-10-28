@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Mail } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -119,9 +119,39 @@ const Navbar = () => {
 
   return (
     <>      
+      {/* Contact Info Bar */}
+      <div className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-navy via-navy to-blue-900 text-white py-3 text-sm shadow-lg border-b border-gold/20">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <div className="flex items-center space-x-8">
+            <a href="mailto:info@paradiseestimating.com" className="group flex items-center space-x-3 hover:text-gold transition-all duration-300 transform hover:scale-105">
+              <div className="w-8 h-8 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-gold/50 transition-all duration-300">
+                <Mail className="h-4 w-4 text-navy" />
+              </div>
+              <span className="font-medium tracking-wide">info@paradiseestimating.com</span>
+            </a>
+            <a href="tel:+1234567890" className="group flex items-center space-x-3 hover:text-gold transition-all duration-300 transform hover:scale-105">
+              <div className="w-8 h-8 bg-gradient-to-br from-gold to-yellow-400 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-gold/50 transition-all duration-300">
+                <Phone className="h-4 w-4 text-navy" />
+              </div>
+              <span className="font-medium tracking-wide">+1 (234) 567-8900</span>
+            </a>
+          </div>
+          <div className="hidden lg:flex items-center space-x-6">
+            <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-gold/30">
+              <div className="w-2 h-2 bg-gold rounded-full animate-pulse shadow-sm"></div>
+              <span className="text-sm font-medium text-gold">Expert Estimators</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-gold/30">
+              <div className="w-2 h-2 bg-gold rounded-full animate-pulse shadow-sm" style={{animationDelay: '0.5s'}}></div>
+              <span className="text-sm font-medium text-gold">24-48 Hour Delivery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <nav
-        className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        className={`fixed left-0 w-full z-40 transition-all duration-300 ${
+          isScrolled ? 'bg-white shadow-md py-2 top-0' : 'bg-transparent py-4 top-12'
         }`}
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
@@ -447,7 +477,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white shadow-lg absolute top-full left-0 w-full py-4 px-6 flex flex-col space-y-4 animate-fade-in-down max-h-96 overflow-y-auto">
+          <div className="lg:hidden bg-white shadow-lg absolute left-0 w-full py-4 px-6 flex flex-col space-y-4 animate-fade-in-down max-h-96 overflow-y-auto" style={{ top: isScrolled ? '100%' : 'calc(100% + 2.5rem)' }}>
             <Link
               to="/"
               className={`text-navy py-2 ${isActive('/') ? 'font-semibold' : ''}`}

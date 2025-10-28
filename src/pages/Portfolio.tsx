@@ -195,49 +195,64 @@ const PortfolioPage = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-navy overflow-hidden">
-        <div className="container mx-auto px-6 z-10">
-          <div className={`text-center transition-all duration-700 transform ${isScrollingUp ? 'translate-y-0 opacity-100' : '-translate-y-6 opacity-90'}`}>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Portfolio</h1>
-            <div className="h-1 w-20 bg-gold mx-auto mb-6"></div>
-            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-              Explore our diverse portfolio of construction and estimating projects across various sectors.
-              Each project showcases our expertise, precision, and commitment to excellence.
-            </p>
-            <div className="flex justify-center items-center space-x-2">
-              <Link to="/">
-                <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-navy">
-                  <Home className="mr-2 h-4 w-4" />
-                  Home
-                </Button>
-              </Link>
-            </div>
-          </div>
+      <section className="relative py-32 bg-gradient-to-br from-navy via-navy to-gray-900 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}></div>
         </div>
         
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)',
-            backgroundSize: '30px 30px'
-          }}></div>
+        <div className="container mx-auto px-6 z-10 relative">
+          <div className={`text-center transition-all duration-700 transform ${isScrollingUp ? 'translate-y-0 opacity-100' : '-translate-y-6 opacity-90'}`}>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              Our <span className="text-gold">Portfolio</span>
+            </h1>
+            <div className="h-1 w-24 bg-gold mx-auto mb-8"></div>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+              Discover our diverse collection of successfully completed construction and estimating projects across various sectors.
+              Each project exemplifies our expertise, precision, and unwavering commitment to excellence.
+            </p>
+            
+            {/* Stats Row */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-gold/20">
+                <div className="text-4xl font-bold text-gold mb-2">2000+</div>
+                <div className="text-sm text-gray-300">Projects Completed</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-gold/20">
+                <div className="text-4xl font-bold text-gold mb-2">95%</div>
+                <div className="text-sm text-gray-300">Client Satisfaction</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-gold/20">
+                <div className="text-4xl font-bold text-gold mb-2">20+</div>
+                <div className="text-sm text-gray-300">Years Experience</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-gold/20">
+                <div className="text-4xl font-bold text-gold mb-2">100+</div>
+                <div className="text-sm text-gray-300">Expert Team</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       
       {/* Portfolio Controls */}
-      <section className="py-8 bg-gray-50 border-b">
+      <section className="py-10 bg-gradient-to-b from-gray-50 to-white border-b shadow-sm sticky top-0 z-40">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-2 mb-4 md:mb-0">
+            <div className="flex flex-wrap justify-center gap-3">
+              <span className="text-sm font-medium text-gray-700 mr-2 hidden md:inline">Filter by:</span>
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm transition-all ${
+                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
                     selectedCategory === category
-                      ? 'bg-navy text-white'
-                      : 'bg-white text-navy border border-gray-200 hover:border-navy'
+                      ? 'bg-navy text-white shadow-lg'
+                      : 'bg-white text-navy border border-gray-300 hover:border-gold hover:bg-gold hover:text-white'
                   }`}
                 >
                   {category}
@@ -246,24 +261,30 @@ const PortfolioPage = () => {
             </div>
             
             {/* View Mode Toggle */}
-            <div className="flex items-center bg-white border border-gray-200 rounded-lg">
+            <div className="flex items-center bg-white border border-gray-300 rounded-lg shadow-sm overflow-hidden">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`p-2 rounded-l-lg ${
-                  viewMode === 'grid' ? 'bg-navy text-white' : 'text-gray-500 hover:text-navy'
+                className={`p-3 transition-all duration-300 ${
+                  viewMode === 'grid' ? 'bg-gold text-navy' : 'text-gray-500 hover:text-gold hover:bg-gray-50'
                 }`}
               >
-                <LayoutGrid size={20} />
+                <LayoutGrid size={22} />
               </button>
+              <div className="h-8 w-px bg-gray-300"></div>
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-2 rounded-r-lg ${
-                  viewMode === 'list' ? 'bg-navy text-white' : 'text-gray-500 hover:text-navy'
+                className={`p-3 transition-all duration-300 ${
+                  viewMode === 'list' ? 'bg-gold text-navy' : 'text-gray-500 hover:text-gold hover:bg-gray-50'
                 }`}
               >
-                <LayoutList size={20} />
+                <LayoutList size={22} />
               </button>
             </div>
+          </div>
+          
+          {/* Results Count */}
+          <div className="mt-6 text-center text-gray-600">
+            <span className="font-medium">{filteredProjects.length}</span> project{filteredProjects.length !== 1 ? 's' : ''} found
           </div>
         </div>
       </section>
@@ -279,35 +300,51 @@ const PortfolioPage = () => {
                   className="animate-fade-in"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <Card className="overflow-hidden border border-gray-200 h-full transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <div className="relative">
+                  <Card className="group overflow-hidden border-2 border-gray-200 h-full transform transition-all duration-500 hover:shadow-2xl hover:border-gold hover:-translate-y-2">
+                    <div className="relative overflow-hidden">
                       <AspectRatio ratio={16 / 9}>
                         <img 
                           src={project.image} 
                           alt={project.title} 
-                          className="object-cover w-full h-full"
+                          className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                           loading="eager"
                           onError={handleImageError}
                         />
                       </AspectRatio>
-                      <div className="absolute top-2 right-2 bg-navy text-white text-xs px-2 py-1 rounded-full">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute top-3 right-3 bg-gold text-navy font-bold text-xs px-3 py-1.5 rounded-full shadow-lg">
                         {project.year}
                       </div>
+                      <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <div className="flex items-center gap-2 text-white text-sm">
+                          <span className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/30">
+                            {project.value}
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <CardContent className="p-4">
-                      <div className="text-xs font-medium text-gold mb-2">
+                    <CardContent className="p-6">
+                      <div className="text-xs font-bold text-gold uppercase tracking-wider mb-3">
                         {project.category}
                       </div>
-                      <CardTitle className="text-lg mb-2">{project.title}</CardTitle>
-                      <CardDescription className="text-sm text-gray-600">
+                      <CardTitle className="text-xl font-bold mb-3 text-navy group-hover:text-gold transition-colors">
+                        {project.title}
+                      </CardTitle>
+                      <CardDescription className="text-sm text-gray-600 leading-relaxed line-clamp-2">
                         {project.description}
                       </CardDescription>
                     </CardContent>
-                    <CardFooter className="p-4 pt-0 flex justify-between items-center">
-                      <span className="text-xs text-gray-500">{project.location}</span>
-                      <Button variant="outline" size="sm" className="flex items-center gap-1">
-                        <Eye size={14} />
-                        <span>Details</span>
+                    <CardFooter className="p-6 pt-0 flex justify-between items-center">
+                      <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        {project.location}
+                      </div>
+                      <Button variant="outline" size="sm" className="flex items-center gap-2 border-gold text-gold hover:bg-gold hover:text-white hover:border-gold transition-all">
+                        <Eye size={16} />
+                        <span className="font-medium">View</span>
                       </Button>
                     </CardFooter>
                   </Card>

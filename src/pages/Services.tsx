@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
+import ContactForm from '@/components/ContactForm';
 import ServiceCard from '@/components/ServiceCard';
 import { 
   quantityTakeoffServices,
@@ -322,6 +323,9 @@ const Services = () => {
           </div>
         </div>
       </section>
+      
+      {/* Contact Form Section */}
+      <ContactForm />
       
       {/* CTA Section */}
       <section className="py-20 bg-navy">

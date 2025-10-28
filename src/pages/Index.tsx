@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
@@ -12,17 +12,20 @@ import EstimateShowcase from '@/components/EstimateShowcase';
 import StatsShowcase from '@/components/StatsShowcase';
 import ClientsCarousel from '@/components/ClientsCarousel';
 import Testimonials from '@/components/Testimonials';
+import ContactForm from '@/components/ContactForm';
 
 import Portfolio from '@/components/Portfolio';
 import { 
   Eye, FileDown, Building2, Calculator, FileText, Settings, Monitor, ClipboardList, Users,
   HardHat, UtilityPole, Construction, Container, PaintBucket, Hammer, Briefcase, Wrench,
   PackageOpen, Package2, PackageCheck, PackageSearch, PackagePlus, Package,
-  CheckCircle2, Trophy, Shield, ArrowRight, ChevronDown, Clock
+  CheckCircle2, Trophy, Shield, ArrowRight, ChevronDown, Clock, Plus, Minus, X
 } from 'lucide-react';
 
 const Index = () => {
   const animatedElementsRef = useRef<HTMLDivElement>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [showPopup, setShowPopup] = useState(true);
 
   // Animation logic for scroll effects
   useEffect(() => {
@@ -122,9 +125,9 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-8 pt-20"
+            className="mb-8 pt-32"
           >
-            <div className="inline-block mb-8 px-6 py-2 bg-gold/20 rounded-full text-gold font-semibold">
+            <div className="inline-block mb-10 px-6 py-2 bg-gold/20 rounded-full text-gold font-semibold">
               Precision Estimates Delivered Fast
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8">
@@ -174,13 +177,13 @@ const Index = () => {
               className="flex flex-col sm:flex-row justify-center gap-4 mt-12"
             >
               <Link to="/services">
-                <Button size="lg" className="bg-gold hover:bg-white hover:text-gold text-white text-lg px-8 py-6">
+                <Button size="lg" className="bg-gold hover:bg-white hover:text-gold text-navy text-lg px-8 py-6">
                   Explore Services
                 </Button>
               </Link>
-              <Link to="/estimate-download">
-                <Button size="lg" variant="outline" className="bg-transparent hover:bg-white text-white hover:text-navy border border-white text-lg px-8 py-6">
-                  Download Sample
+              <Link to="/upload-plan">
+                <Button size="lg" className="bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-navy font-bold text-lg px-8 py-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                  Upload Plan
                 </Button>
               </Link>
             </motion.div>
@@ -201,6 +204,39 @@ const Index = () => {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Discount Popup */}
+        {showPopup && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-2xl p-8 max-w-md mx-4 relative shadow-2xl">
+              <button 
+                onClick={() => setShowPopup(false)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+              >
+                <X className="h-6 w-6" />
+              </button>
+              <div className="text-center">
+                <div className="bg-gold text-navy text-2xl font-bold py-2 px-4 rounded-full inline-block mb-4">
+                  30% OFF
+                </div>
+                <h3 className="text-2xl font-bold text-navy mb-4">
+                  Special Offer!
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Get 30% off your first 3 estimates. Limited time offer for new customers!
+                </p>
+                <Link to="/contact">
+                  <Button 
+                    onClick={() => setShowPopup(false)}
+                    className="bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-navy font-bold px-8 py-3 w-full"
+                  >
+                    Claim Offer Now
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -415,6 +451,14 @@ const Index = () => {
               <p className="text-gray-600">Our estimates include clear recommendations for project phases and timelines, ensuring you stay on schedule from start to finish.</p>
             </motion.div>
           </div>
+          
+          <div className="text-center mt-12">
+            <Link to="/contact">
+              <Button size="lg" className="bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-navy font-bold text-lg px-8 py-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                Get Free Quote Now
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -422,7 +466,7 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-navy text-center mb-16">Frequently Asked Questions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="max-w-4xl mx-auto space-y-4">
             {[
               {
                 q: "What is a construction cost estimate?",
@@ -454,10 +498,24 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-xl shadow-lg"
+                className="bg-white rounded-xl shadow-lg overflow-hidden"
               >
-                <h3 className="text-xl font-bold text-navy mb-4">{faq.q}</h3>
-                <p className="text-gray-600">{faq.a}</p>
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                >
+                  <h3 className="text-xl font-bold text-navy">{faq.q}</h3>
+                  {openFaq === index ? (
+                    <Minus className="h-6 w-6 text-gold" />
+                  ) : (
+                    <Plus className="h-6 w-6 text-gold" />
+                  )}
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-gray-600">{faq.a}</p>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -501,6 +559,14 @@ const Index = () => {
               <p className="text-gray-600">Need help? We're here around the clock</p>
             </motion.div>
           </div>
+          
+          <div className="text-center mt-12">
+            <Link to="/services">
+              <Button size="lg" className="bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-navy font-bold text-lg px-8 py-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                Start Your Project Today
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
       
@@ -517,33 +583,41 @@ const Index = () => {
             {serviceCategories.map((cat, idx) => (
               <div
                 key={cat.id}
-                className={`p-6 rounded-lg border-2 bg-${cat.color}-50 border-${cat.color}-200 text-${cat.color}-800 hover:shadow-lg transition-shadow duration-300 animate-on-scroll`}
+                className="p-6 rounded-xl bg-white border-2 border-gold/20 text-navy hover:shadow-xl hover:border-gold transition-all duration-300 animate-on-scroll transform hover:-translate-y-1"
                 style={{ transitionDelay: `${100 * (idx + 1)}ms` }}
               >
                 <div className="flex items-center mb-4">
-                  <div className="mr-4">{cat.icon}</div>
+                  <div className="mr-4 text-gold">{cat.icon}</div>
                   <h3 className="text-xl font-bold">{cat.title}</h3>
                 </div>
-                <p className="mb-4 opacity-80">{cat.description}</p>
-                <p className="text-sm font-semibold">{cat.count} Services Available</p>
+                <p className="mb-4 text-gray-600">{cat.description}</p>
+                <p className="text-sm font-semibold text-gold">{cat.count} Services Available</p>
               </div>
             ))}
           </div>
-          <div className="flex justify-center mt-12">
-            <Button className="bg-navy hover:bg-gold text-white flex items-center gap-2">
-              <Eye size={18} />
-              <Link to="/services">View All Services</Link>
-            </Button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12">
+            <Link to="/services">
+              <Button size="lg" className="bg-navy hover:bg-gold text-white font-bold text-lg px-8 py-6 flex items-center gap-2">
+                <Eye size={18} />
+                View All Services
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" className="bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-navy font-bold text-lg px-8 py-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                Get Instant Estimate
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
-      
-      <Portfolio />
       
       <ClientsCarousel />
       
       {/* Testimonials Section */}
       <Testimonials />
+      
+      {/* Contact Form Section */}
+      <ContactForm />
       
       {/* CTA Section */}
       <section className="py-16 bg-navy">
@@ -552,9 +626,18 @@ const Index = () => {
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
             Contact us today for a free consultation and quote. Our team is ready to help you with your next construction project.
           </p>
-          <Button className="bg-gold hover:bg-white hover:text-gold text-white text-lg px-8 py-6">
-            <Link to="/contact">Get A Quote</Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link to="/contact">
+              <Button className="bg-gold hover:bg-white hover:text-gold text-white text-lg px-8 py-6">
+                Get A Quote
+              </Button>
+            </Link>
+            <Link to="/upload-plan">
+              <Button size="lg" className="bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-navy font-bold text-lg px-8 py-6 shadow-lg transform hover:scale-105 transition-all duration-300">
+                Upload Your Plans
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
       
