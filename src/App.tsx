@@ -49,6 +49,7 @@ import ContractorList from "./pages/ContractorList";
 import ScrollToTop from "@/components/ScrollToTop";
 import GetAQuote from '@/pages/GetAQuote';
 import UploadPlan from './pages/UploadPlan';
+import SEOManager from './pages/SEOManager';
 
 const queryClient = new QueryClient();
 
@@ -104,6 +105,7 @@ const App = () => (
               <Route path="/service-areas/:stateId" element={<ServiceDetail />} />
               <Route path="/get-a-quote" element={<GetAQuote />} />
               <Route path="/upload-plan" element={<UploadPlan />} />
+              <Route path="/seo-manager" element={<SEOManager />} />
             </Route>
             <Route path="/contractorlist" element={<ContractorList />} />
             <Route path="*" element={<NotFound />} />
