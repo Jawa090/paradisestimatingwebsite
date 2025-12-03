@@ -112,12 +112,45 @@ export default function SEOManager() {
     }
   };
 
+  const getPageDefaults = (path: string, pageName: string): SEOData => {
+    const baseUrl = 'https://paradiseestimating.com';
+    return {
+      path,
+      title: `${pageName} - Paradise Estimating`,
+      description: `Professional construction estimating services for ${pageName.toLowerCase()}. Get accurate cost estimates and quantity takeoffs.`,
+      robots: 'index, follow',
+      canonical: `${baseUrl}${path}`,
+      ogLocale: 'en_US',
+      ogType: 'website',
+      ogTitle: `${pageName} - Paradise Estimating`,
+      ogDescription: `Professional construction estimating services for ${pageName.toLowerCase()}. Get accurate cost estimates and quantity takeoffs.`,
+      ogUrl: `${baseUrl}${path}`,
+      ogSiteName: 'Paradise Estimating',
+      ogImage: `${baseUrl}/logo.png`,
+      articlePublisher: 'https://facebook.com/paradiseestimating',
+      articleModifiedTime: new Date().toISOString(),
+      twitterCard: 'summary_large_image',
+      twitterSite: '@paradiseestimate',
+      twitterTitle: `${pageName} - Paradise Estimating`,
+      twitterDescription: `Professional construction estimating services for ${pageName.toLowerCase()}. Get accurate cost estimates and quantity takeoffs.`,
+      twitterImage: `${baseUrl}/logo.png`,
+      schema: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": `${pageName} - Paradise Estimating`,
+        "description": `Professional construction estimating services for ${pageName.toLowerCase()}`,
+        "url": `${baseUrl}${path}`,
+      }, null, 2),
+    };
+  };
+
   const handleEdit = (path: string) => {
     const stored = localStorage.getItem(`seo_${path}`);
+    const page = pages.find(p => p.path === path);
     if (stored) {
       setSeoData(JSON.parse(stored));
     } else {
-      setSeoData({ ...defaultSEO, path, canonical: `https://yourdomain.com${path}`, ogUrl: `https://yourdomain.com${path}` });
+      setSeoData(getPageDefaults(path, page?.name || 'Page'));
     }
     setSelectedPage(path);
   };
